@@ -1,0 +1,14 @@
+optionsFile: null
+printHelp: false
+javaVersion: 11
+prependJVM: true
+classPath: src/test/resources/pta/cipta/
+mainClass: StaticCall
+worldBuilderClass: pascal.taie.frontend.soot.SootWorldBuilder
+preBuildIR: false
+scope: app
+nativeModel: true
+dumpClasses: false
+planFile: D:\Users\Dell\Documents\MyUniversity\S1\Courses\Static_Program_Analysis\Assignments\Assignment5\tai-e\plan.yml
+analyses: {}
+onlyGenPlan: false

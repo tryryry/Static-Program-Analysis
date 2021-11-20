@@ -9,6 +9,6 @@ preBuildIR: false
 scope: app
 nativeModel: true
 dumpClasses: false
-planFile: D:\Users\Dell\Documents\MyUniversity\S1\Courses\Static_Program_Analysis\Assignments\Assignment5\tai-e\plan.yml
+planFile: E:\Users\Dell\Documents\MyUniversity\S1\Courses\Static_Program_Analysis\Static_Program_Analysis\Assignments\Assignment5\tai-e\plan.yml
 analyses: {}
 onlyGenPlan: false

@@ -22,34 +22,18 @@ import pascal.taie.analysis.pta.PointerAnalysisResult;
 import pascal.taie.analysis.pta.PointerAnalysisResultImpl;
 import pascal.taie.analysis.pta.core.cs.CSCallGraph;
 import pascal.taie.analysis.pta.core.cs.context.Context;
-import pascal.taie.analysis.pta.core.cs.element.ArrayIndex;
-import pascal.taie.analysis.pta.core.cs.element.CSCallSite;
-import pascal.taie.analysis.pta.core.cs.element.CSManager;
-import pascal.taie.analysis.pta.core.cs.element.CSMethod;
-import pascal.taie.analysis.pta.core.cs.element.CSObj;
-import pascal.taie.analysis.pta.core.cs.element.CSVar;
-import pascal.taie.analysis.pta.core.cs.element.InstanceField;
-import pascal.taie.analysis.pta.core.cs.element.MapBasedCSManager;
-import pascal.taie.analysis.pta.core.cs.element.Pointer;
-import pascal.taie.analysis.pta.core.cs.element.StaticField;
+import pascal.taie.analysis.pta.core.cs.element.*;
 import pascal.taie.analysis.pta.core.cs.selector.ContextSelector;
 import pascal.taie.analysis.pta.core.heap.HeapModel;
-import pascal.taie.analysis.pta.core.heap.Obj;
 import pascal.taie.analysis.pta.pts.PointsToSet;
 import pascal.taie.analysis.pta.pts.PointsToSetFactory;
-import pascal.taie.ir.exp.InvokeExp;
 import pascal.taie.ir.exp.Var;
-import pascal.taie.ir.stmt.Copy;
-import pascal.taie.ir.stmt.Invoke;
-import pascal.taie.ir.stmt.LoadArray;
-import pascal.taie.ir.stmt.LoadField;
-import pascal.taie.ir.stmt.New;
-import pascal.taie.ir.stmt.StmtVisitor;
-import pascal.taie.ir.stmt.StoreArray;
-import pascal.taie.ir.stmt.StoreField;
-import pascal.taie.language.classes.JField;
+import pascal.taie.ir.stmt.*;
 import pascal.taie.language.classes.JMethod;
 import pascal.taie.language.type.Type;
+
+import java.lang.reflect.Method;
+import java.util.List;
 
 class Solver {
 
@@ -97,6 +81,12 @@ class Solver {
      */
     private void addReachable(CSMethod csMethod) {
         // TODO - finish me
+        StmtProcessor stmtProcessor=new StmtProcessor(csMethod);
+        if(callGraph.addReachableMethod(csMethod)){
+            for(Stmt stmt:csMethod.getMethod().getIR().getStmts()){
+                stmt.accept(stmtProcessor);
+            }
+        }
     }
 
     /**
@@ -112,7 +102,57 @@ class Solver {
             this.csMethod = csMethod;
             this.context = csMethod.getContext();
         }
+        public Void visit(New stmt) {
+            Context heapContext=contextSelector.selectHeapContext(csMethod,heapModel.getObj(stmt));
+            CSVar csVar=csManager.getCSVar(heapContext, stmt.getLValue());
+            CSObj csObj=csManager.getCSObj(heapContext,heapModel.getObj(stmt));
+            workList.addEntry(csVar, PointsToSetFactory.make(csObj));
+            return null;
+        }
+        public Void visit(Copy stmt){
+            CSVar csVarLeft=csManager.getCSVar(context,stmt.getLValue());
+            CSVar csVarRight=csManager.getCSVar(context,stmt.getRValue());
+            addPFGEdge(csVarRight,csVarLeft);
+            return null;
+        }
+        public Void  visit(LoadField stmt) {
+            if(stmt.isStatic()){
+                CSVar csVar=csManager.getCSVar(context,stmt.getLValue());
+                StaticField staticField= csManager.getStaticField(stmt.getFieldRef().resolve());
+                addPFGEdge(staticField,csVar);
+            }
+            return null;
+        }
+        public Void  visit(StoreField stmt) {
+            if(stmt.isStatic()){
+                CSVar csVar=csManager.getCSVar(context,stmt.getRValue());
+                StaticField staticField=csManager.getStaticField(stmt.getFieldRef().resolve());
+                addPFGEdge(csVar,staticField);
+            }
+            return null;
+        }
+        public Void  visit(Invoke stmt) {
+            if(stmt.isStatic()){
+                JMethod jMethod=resolveCallee(null,stmt);
+                CSCallSite csCallSite=csManager.getCSCallSite(context,stmt);
+                Context staticContext=contextSelector.selectContext(csCallSite,jMethod);
+                CSMethod csMethod=csManager.getCSMethod(staticContext,jMethod);
+                if(callGraph.addEdge(new Edge<CSCallSite, CSMethod>(CallKind.STATIC,csCallSite,csMethod))){
+                    addReachable(csMethod);
 
+                    for(Var var:jMethod.getIR().getReturnVars()){
+                        addPFGEdge(csManager.getCSVar(staticContext,var),csManager.getCSVar(context,stmt.getLValue()));
+                    }
+
+                    List<Var>Args=stmt.getRValue().getArgs();
+                    List<Var>Params=jMethod.getIR().getParams();
+                    for(int i=0;i<Args.size();i++){
+                        addPFGEdge(csManager.getCSVar(context,Args.get(i)),csManager.getCSVar(staticContext,Params.get(i)));
+                    }
+                }
+            }
+            return null;
+        }
         // TODO - if you choose to implement addReachable()
         //  via visitor pattern, then finish me
     }
@@ -122,6 +162,11 @@ class Solver {
      */
     private void addPFGEdge(Pointer source, Pointer target) {
         // TODO - finish me
+        if(pointerFlowGraph.addEdge(source,target)){
+            if(!source.getPointsToSet().isEmpty()){
+                workList.addEntry(target,source.getPointsToSet());
+            }
+        }
     }
 
     /**
@@ -129,6 +174,7 @@ class Solver {
      */
     private void analyze() {
         // TODO - finish me
+        
     }
 
     /**

@@ -3,137 +3,117 @@
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9162 classes with 89829 methods in the world
-,WorldBuilder finishes, elapsed time: 3.37s
+,WorldBuilder finishes, elapsed time: 3.32s
 cspta starts ...
 <-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
+5#var pointers:                9 (insens) / 9 (sens)
+7#var points-to:               10 (insens) / 10 (sens)
 (#static field points-to:      0 (sens)
-(#instance field points-to:    0 (sens)
+(#instance field points-to:    1 (sens)
 (#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
+5#reachable methods:           4 (insens) / 4 (sens)
+5#call graph edges:            4 (insens) / 4 (sens)
 *----------------------------------------
 VComparing points-to set with src\test\resources\pta\cspta\StoreLoad-expected.txt ...
+%cspta finishes, elapsed time: 0.14s
+class-dumper starts ...
+!Dumping 3 classes to output ...
+,class-dumper finishes, elapsed time: 0.02s
+%Tai-e finishes, elapsed time: 3.64s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9165 classes with 89837 methods in the world
-,WorldBuilder finishes, elapsed time: 1.75s
+,WorldBuilder finishes, elapsed time: 1.87s
 cspta starts ...
-<-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
-(#static field points-to:      0 (sens)
-(#instance field points-to:    0 (sens)
-(#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
-*----------------------------------------
-TComparing points-to set with src\test\resources\pta\cspta\OneCall-expected.txt ...
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9164 classes with 89835 methods in the world
-,WorldBuilder finishes, elapsed time: 1.55s
+,WorldBuilder finishes, elapsed time: 1.52s
 cspta starts ...
-<-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
-(#static field points-to:      0 (sens)
-(#instance field points-to:    0 (sens)
-(#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
-*----------------------------------------
-TComparing points-to set with src\test\resources\pta\cspta\OneType-expected.txt ...
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9163 classes with 89830 methods in the world
-,WorldBuilder finishes, elapsed time: 1.63s
+,WorldBuilder finishes, elapsed time: 1.66s
 cspta starts ...
 <-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
+7#var pointers:                12 (insens) / 12 (sens)
+7#var points-to:               18 (insens) / 18 (sens)
 (#static field points-to:      0 (sens)
 (#instance field points-to:    0 (sens)
 (#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
+5#reachable methods:           5 (insens) / 5 (sens)
+5#call graph edges:            7 (insens) / 7 (sens)
 *----------------------------------------
 PComparing points-to set with src\test\resources\pta\cspta\New-expected.txt ...
+%cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+!Dumping 4 classes to output ...
+,class-dumper finishes, elapsed time: 0.00s
+%Tai-e finishes, elapsed time: 1.69s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9163 classes with 89833 methods in the world
-,WorldBuilder finishes, elapsed time: 1.63s
+,WorldBuilder finishes, elapsed time: 1.66s
 cspta starts ...
-<-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
-(#static field points-to:      0 (sens)
-(#instance field points-to:    0 (sens)
-(#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
-*----------------------------------------
-TComparing points-to set with src\test\resources\pta\cspta\TwoCall-expected.txt ...
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9165 classes with 89837 methods in the world
-,WorldBuilder finishes, elapsed time: 1.90s
+,WorldBuilder finishes, elapsed time: 1.46s
 cspta starts ...
-<-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
-(#static field points-to:      0 (sens)
-(#instance field points-to:    0 (sens)
-(#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
-*----------------------------------------
-TComparing points-to set with src\test\resources\pta\cspta\TwoType-expected.txt ...
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9162 classes with 89830 methods in the world
-,WorldBuilder finishes, elapsed time: 1.99s
+,WorldBuilder finishes, elapsed time: 1.57s
 cspta starts ...
 <-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
+7#var pointers:                14 (insens) / 14 (sens)
+7#var points-to:               17 (insens) / 17 (sens)
 (#static field points-to:      0 (sens)
 (#instance field points-to:    0 (sens)
-(#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
+(#array points-to:             3 (sens)
+5#reachable methods:           5 (insens) / 5 (sens)
+5#call graph edges:            6 (insens) / 6 (sens)
 *----------------------------------------
 RComparing points-to set with src\test\resources\pta\cspta\Array-expected.txt ...
+%cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+!Dumping 3 classes to output ...
+,class-dumper finishes, elapsed time: 0.00s
+%Tai-e finishes, elapsed time: 1.60s
 	Tai-e starts ...
 	'Writing options to output\options.yml
 	0Writing analysis plan to output\tai-e-plan.yml
 	WorldBuilder starts ...
 	.9163 classes with 89831 methods in the world
-	,WorldBuilder finishes, elapsed time: 1.50s
+	,WorldBuilder finishes, elapsed time: 1.35s
 	cspta starts ...
 	<-------------- Pointer analysis statistics: --------------
-	5#var pointers:                0 (insens) / 0 (sens)
-	5#var points-to:               0 (insens) / 0 (sens)
+	7#var pointers:                15 (insens) / 15 (sens)
+	7#var points-to:               17 (insens) / 17 (sens)
 	(#static field points-to:      0 (sens)
 	(#instance field points-to:    0 (sens)
 	(#array points-to:             0 (sens)
-	5#reachable methods:           0 (insens) / 0 (sens)
-	5#call graph edges:            0 (insens) / 0 (sens)
+	5#reachable methods:           6 (insens) / 6 (sens)
+	5#call graph edges:            7 (insens) / 7 (sens)
 	*----------------------------------------
 	QComparing points-to set with src\test\resources\pta\cspta\Call-expected.txt ...
+	%cspta finishes, elapsed time: 0.01s
+	class-dumper starts ...
+	!Dumping 4 classes to output ...
+	,class-dumper finishes, elapsed time: 0.00s
+	%Tai-e finishes, elapsed time: 1.37s
 
 Tai-e starts ...
 
@@ -145,94 +125,94 @@
 
 .9162 classes with 89829 methods in the world
 
-,WorldBuilder finishes, elapsed time: 1.95s
+,WorldBuilder finishes, elapsed time: 1.62s
 
 cspta starts ...
 
 <-------------- Pointer analysis statistics: --------------
 
-5#var pointers:                0 (insens) / 0 (sens)
+5#var pointers:                4 (insens) / 4 (sens)
 
-5#var points-to:               0 (insens) / 0 (sens)
+5#var points-to:               4 (insens) / 4 (sens)
 
-(#static field points-to:      0 (sens)
+(#static field points-to:      1 (sens)
 
 (#instance field points-to:    0 (sens)
 
 (#array points-to:             0 (sens)
 
-5#reachable methods:           0 (insens) / 0 (sens)
+5#reachable methods:           3 (insens) / 3 (sens)
 
-5#call graph edges:            0 (insens) / 0 (sens)
+5#call graph edges:            2 (insens) / 2 (sens)
 
 *----------------------------------------
 
 XComparing points-to set with src\test\resources\pta\cspta\StaticField-expected.txt ...
+
+%cspta finishes, elapsed time: 0.01s
+
+class-dumper starts ...
+
+!Dumping 3 classes to output ...
+
+,class-dumper finishes, elapsed time: 0.00s
+
+%Tai-e finishes, elapsed time: 1.64s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9163 classes with 89834 methods in the world
-,WorldBuilder finishes, elapsed time: 1.53s
+,WorldBuilder finishes, elapsed time: 1.46s
 cspta starts ...
-<-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
-(#static field points-to:      0 (sens)
-(#instance field points-to:    0 (sens)
-(#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
-*----------------------------------------
-VComparing points-to set with src\test\resources\pta\cspta\TwoObject-expected.txt ...
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9164 classes with 89835 methods in the world
-,WorldBuilder finishes, elapsed time: 1.70s
+,WorldBuilder finishes, elapsed time: 1.46s
 cspta starts ...
 <-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
+7#var pointers:                38 (insens) / 38 (sens)
+7#var points-to:               53 (insens) / 53 (sens)
 (#static field points-to:      0 (sens)
-(#instance field points-to:    0 (sens)
+(#instance field points-to:    6 (sens)
 (#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
+7#reachable methods:           10 (insens) / 10 (sens)
+7#call graph edges:            18 (insens) / 18 (sens)
 *----------------------------------------
 ZComparing points-to set with src\test\resources\pta\cspta\InstanceField-expected.txt ...
+%cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+!Dumping 5 classes to output ...
+,class-dumper finishes, elapsed time: 0.00s
+%Tai-e finishes, elapsed time: 1.48s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9162 classes with 89829 methods in the world
-,WorldBuilder finishes, elapsed time: 1.78s
+,WorldBuilder finishes, elapsed time: 1.40s
 cspta starts ...
 <-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
+5#var pointers:                9 (insens) / 9 (sens)
+7#var points-to:               14 (insens) / 14 (sens)
 (#static field points-to:      0 (sens)
 (#instance field points-to:    0 (sens)
 (#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
+5#reachable methods:           4 (insens) / 4 (sens)
+5#call graph edges:            4 (insens) / 4 (sens)
 *----------------------------------------
 SComparing points-to set with src\test\resources\pta\cspta\Assign-expected.txt ...
+%cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+!Dumping 3 classes to output ...
+,class-dumper finishes, elapsed time: 0.00s
+%Tai-e finishes, elapsed time: 1.42s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9162 classes with 89833 methods in the world
-,WorldBuilder finishes, elapsed time: 1.49s
+,WorldBuilder finishes, elapsed time: 1.54s
 cspta starts ...
-<-------------- Pointer analysis statistics: --------------
-5#var pointers:                0 (insens) / 0 (sens)
-5#var points-to:               0 (insens) / 0 (sens)
-(#static field points-to:      0 (sens)
-(#instance field points-to:    0 (sens)
-(#array points-to:             0 (sens)
-5#reachable methods:           0 (insens) / 0 (sens)
-5#call graph edges:            0 (insens) / 0 (sens)
-*----------------------------------------
-VComparing points-to set with src\test\resources\pta\cspta\OneObject-expected.txt ...

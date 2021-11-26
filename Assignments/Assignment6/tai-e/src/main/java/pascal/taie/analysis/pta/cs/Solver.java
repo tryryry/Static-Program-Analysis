@@ -105,8 +105,10 @@ class Solver {
         }
         public Void visit(New stmt) {
             Context heapContext=contextSelector.selectHeapContext(csMethod,heapModel.getObj(stmt));
-            CSVar csVar=csManager.getCSVar(heapContext, stmt.getLValue());
+
+            CSVar csVar=csManager.getCSVar(context, stmt.getLValue());
             CSObj csObj=csManager.getCSObj(heapContext,heapModel.getObj(stmt));
+            //System.out.println(PointsToSetFactory.make(csObj));
             workList.addEntry(csVar, PointsToSetFactory.make(csObj));
             return null;
         }
@@ -203,6 +205,7 @@ class Solver {
                             ArrayIndex arrayIndex=csManager.getArrayIndex(obj);
                             addPFGEdge(arrayIndex,csVar);
                         }
+
                         processCall((CSVar) entry.pointer,obj);
                     }
                 }
@@ -238,11 +241,13 @@ class Solver {
      */
     private void processCall(CSVar recv, CSObj recvObj) {
         // TODO - finish me
+
         Context context=recv.getContext();
         for(Invoke invoke:recv.getVar().getInvokes()){
             JMethod jMethod=resolveCallee(recvObj,invoke);
             Context invokeContext=contextSelector.selectContext(csManager.getCSCallSite(context,invoke),recvObj,jMethod);
             workList.addEntry(csManager.getCSVar(invokeContext,jMethod.getIR().getThis()),PointsToSetFactory.make(recvObj));
+            //System.out.println(PointsToSetFactory.make(recvObj));
             CallKind kind = null;
             if(invoke.isInterface()){
                kind=CallKind.INTERFACE;

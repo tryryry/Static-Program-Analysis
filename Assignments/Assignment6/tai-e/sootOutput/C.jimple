@@ -1,6 +1,5 @@
-class C extends java.lang.Object
+class C extends B
 {
-    D d;
 
     void <init>()
     {
@@ -8,7 +7,7 @@ class C extends java.lang.Object
 
         this := @this: C;
 
-        specialinvoke this.<java.lang.Object: void <init>()>();
+        specialinvoke this.<B: void <init>()>();
 
         return;
     }

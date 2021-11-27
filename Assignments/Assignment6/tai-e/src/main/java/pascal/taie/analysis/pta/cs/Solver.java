@@ -108,7 +108,7 @@ class Solver {
 
             CSVar csVar=csManager.getCSVar(context, stmt.getLValue());
             CSObj csObj=csManager.getCSObj(heapContext,heapModel.getObj(stmt));
-            //System.out.println(PointsToSetFactory.make(csObj));
+
             workList.addEntry(csVar, PointsToSetFactory.make(csObj));
             return null;
         }
@@ -183,6 +183,7 @@ class Solver {
             if(entry.pointer instanceof CSVar){
                 if(!diffPointsToSet.isEmpty()&&diffPointsToSet!=null) {
                     Var var=((CSVar) entry.pointer).getVar();
+                    String str=var.toString();
                     Context context=((CSVar) entry.pointer).getContext();
                     for (CSObj obj : diffPointsToSet) {
                         for(StoreField storeField:var.getStoreFields()){
@@ -247,7 +248,6 @@ class Solver {
             JMethod jMethod=resolveCallee(recvObj,invoke);
             Context invokeContext=contextSelector.selectContext(csManager.getCSCallSite(context,invoke),recvObj,jMethod);
             workList.addEntry(csManager.getCSVar(invokeContext,jMethod.getIR().getThis()),PointsToSetFactory.make(recvObj));
-            //System.out.println(PointsToSetFactory.make(recvObj));
             CallKind kind = null;
             if(invoke.isInterface()){
                kind=CallKind.INTERFACE;

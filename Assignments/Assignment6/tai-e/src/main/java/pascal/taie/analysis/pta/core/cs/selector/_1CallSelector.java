@@ -48,7 +48,6 @@ public class _1CallSelector implements ContextSelector {
     public Context selectHeapContext(CSMethod method, Obj obj) {
         // TODO - finish me
         //return null;
-
         return getEmptyContext();
     }
 }

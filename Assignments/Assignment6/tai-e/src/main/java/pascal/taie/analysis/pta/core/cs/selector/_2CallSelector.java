@@ -37,7 +37,6 @@ public class _2CallSelector implements ContextSelector {
         //return null;
         int len=callSite.getContainer().getContext().getLength();
         if(len>0){
-            System.out.println(1);
             return ListContext.make(callSite.getContainer().getContext().getElementAt(len-1),callSite.getCallSite());
         }
         return ListContext.make(callSite.getCallSite());
@@ -47,10 +46,8 @@ public class _2CallSelector implements ContextSelector {
     public Context selectContext(CSCallSite callSite, CSObj recv, JMethod callee) {
         // TODO - finish me
         //return null;
-
         int len=callSite.getContainer().getContext().getLength();
         if(len>0){
-            System.out.println(1);
             return ListContext.make(callSite.getContainer().getContext().getElementAt(len-1),callSite.getCallSite());
         }
         return ListContext.make(callSite.getCallSite());
@@ -60,6 +57,10 @@ public class _2CallSelector implements ContextSelector {
     public Context selectHeapContext(CSMethod method, Obj obj) {
         // TODO - finish me
         //return null;
-        return ListContext.make();
+        int len=method.getContext().getLength();
+        if(len>0){
+            return ListContext.make(method.getContext().getElementAt(len-1));
+        }
+        return getEmptyContext();
     }
 }

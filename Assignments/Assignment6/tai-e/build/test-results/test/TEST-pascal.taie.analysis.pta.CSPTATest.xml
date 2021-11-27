@@ -1,406 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="pascal.taie.analysis.pta.CSPTATest" tests="13" skipped="0" failures="4" errors="0" timestamp="2021-11-26T13:47:03" hostname="DESKTOP-I64H15I" time="23.979">
+<testsuite name="pascal.taie.analysis.pta.CSPTATest" tests="13" skipped="0" failures="0" errors="0" timestamp="2021-11-27T10:14:24" hostname="DESKTOP-I64H15I" time="24.914">
   <properties/>
-  <testcase name="testStoreLoad" classname="pascal.taie.analysis.pta.CSPTATest" time="3.851"/>
-  <testcase name="testOneCall" classname="pascal.taie.analysis.pta.CSPTATest" time="2.048"/>
-  <testcase name="testOneType" classname="pascal.taie.analysis.pta.CSPTATest" time="1.557">
-    <failure message="java.lang.NullPointerException: HybridArrayHashMap does not permit null keys" type="java.lang.NullPointerException">java.lang.NullPointerException: HybridArrayHashMap does not permit null keys
-	at java.base/java.util.Objects.requireNonNull(Objects.java:246)
-	at pascal.taie.util.collection.HybridArrayHashMap.put(HybridArrayHashMap.java:139)
-	at java.base/java.util.Map.computeIfAbsent(Map.java:1004)
-	at pascal.taie.analysis.pta.core.cs.element.MapBasedCSManager.getOrCreateCSElement(MapBasedCSManager.java:49)
-	at pascal.taie.analysis.pta.core.cs.element.MapBasedCSManager.getCSObj(MapBasedCSManager.java:60)
-	at pascal.taie.analysis.pta.cs.Solver$StmtProcessor.visit(Solver.java:110)
-	at pascal.taie.analysis.pta.cs.Solver$StmtProcessor.visit(Solver.java:96)
-	at pascal.taie.ir.stmt.New.accept(New.java:43)
-	at pascal.taie.analysis.pta.cs.Solver.addReachable(Solver.java:88)
-	at pascal.taie.analysis.pta.cs.Solver.initialize(Solver.java:77)
-	at pascal.taie.analysis.pta.cs.Solver.solve(Solver.java:63)
-	at pascal.taie.analysis.pta.cs.CSPTA.analyze(CSPTA.java:46)
-	at pascal.taie.analysis.pta.cs.CSPTA.analyze(CSPTA.java:32)
-	at pascal.taie.analysis.AnalysisManager.runInterproceduralAnalysis(AnalysisManager.java:124)
-	at pascal.taie.analysis.AnalysisManager.runAnalysis(AnalysisManager.java:62)
-	at pascal.taie.analysis.AnalysisManager.lambda$execute$0(AnalysisManager.java:49)
-	at pascal.taie.util.Timer.lambda$runAndCount$0(Timer.java:102)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:83)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:101)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:97)
-	at pascal.taie.analysis.AnalysisManager.lambda$execute$1(AnalysisManager.java:48)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at pascal.taie.analysis.AnalysisManager.execute(AnalysisManager.java:48)
-	at pascal.taie.Main.executePlan(Main.java:128)
-	at pascal.taie.Main.lambda$main$0(Main.java:46)
-	at pascal.taie.util.Timer.lambda$runAndCount$0(Timer.java:102)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:83)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:101)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:97)
-	at pascal.taie.Main.main(Main.java:38)
-	at pascal.taie.analysis.Tests.testPTA(Tests.java:59)
-	at pascal.taie.analysis.pta.CSPTATest.testOneType(CSPTATest.java:59)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:121)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-</failure>
-  </testcase>
-  <testcase name="testNew" classname="pascal.taie.analysis.pta.CSPTATest" time="1.643"/>
-  <testcase name="testTwoCall" classname="pascal.taie.analysis.pta.CSPTATest" time="1.76">
-    <failure message="pascal.taie.util.AnalysisException: Mismatches of points-to set&#10;[&lt;C: void &lt;init&gt;()&gt;[0@L26] invokespecial %this.&lt;init&gt;(), &lt;B: void &lt;init&gt;()&gt;[0@L23] invokespecial %this.&lt;init&gt;()]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]&#10;[&lt;TwoCall: void m()&gt;[1@L7] invokespecial temp$0.&lt;init&gt;(), &lt;A: void &lt;init&gt;()&gt;[0@L13] invokespecial %this.&lt;init&gt;()]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]&#10;[&lt;TwoCall: void m()&gt;[4@L8] invokespecial temp$1.&lt;init&gt;(), &lt;B: void &lt;init&gt;()&gt;[0@L23] invokespecial %this.&lt;init&gt;()]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]&#10;[&lt;TwoCall: void m()&gt;[5@L8] temp$2 = invokevirtual a.id(temp$1), &lt;A: B id(B)&gt;[0@L15] temp$0 = invokevirtual %this._id(b)]:&lt;A: B _id(B)&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]&#10;[&lt;TwoCall: void m()&gt;[5@L8] temp$2 = invokevirtual a.id(temp$1), &lt;A: B id(B)&gt;[0@L15] temp$0 = invokevirtual %this._id(b)]:&lt;A: B _id(B)&gt;/p, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]&#10;[&lt;TwoCall: void m()&gt;[8@L9] invokespecial temp$3.&lt;init&gt;(), &lt;C: void &lt;init&gt;()&gt;[0@L26] invokespecial %this.&lt;init&gt;()]:&lt;B: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]&#10;[&lt;TwoCall: void m()&gt;[9@L9] temp$4 = invokevirtual a.id(temp$3), &lt;A: B id(B)&gt;[0@L15] temp$0 = invokevirtual %this._id(b)]:&lt;A: B _id(B)&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]&#10;[&lt;TwoCall: void m()&gt;[9@L9] temp$4 = invokevirtual a.id(temp$3), &lt;A: B id(B)&gt;[0@L15] temp$0 = invokevirtual %this._id(b)]:&lt;A: B _id(B)&gt;/p, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[1@L7] invokespecial temp$0.&lt;init&gt;()]:&lt;A: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[4@L8] invokespecial temp$1.&lt;init&gt;()]:&lt;B: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[5@L8] temp$2 = invokevirtual a.id(temp$1)]:&lt;A: B id(B)&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[5@L8] temp$2 = invokevirtual a.id(temp$1)]:&lt;A: B id(B)&gt;/b, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[5@L8] temp$2 = invokevirtual a.id(temp$1)]:&lt;A: B id(B)&gt;/temp$0, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[8@L9] invokespecial temp$3.&lt;init&gt;()]:&lt;C: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[9@L9] temp$4 = invokevirtual a.id(temp$3)]:&lt;A: B id(B)&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[9@L9] temp$4 = invokevirtual a.id(temp$3)]:&lt;A: B id(B)&gt;/b, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[9@L9] temp$4 = invokevirtual a.id(temp$3)]:&lt;A: B id(B)&gt;/temp$0, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/a, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/b, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/c, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/temp$0, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/temp$1, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/temp$2, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/temp$3, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]&#10;[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/temp$4, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]" type="pascal.taie.util.AnalysisException">pascal.taie.util.AnalysisException: Mismatches of points-to set
-[&lt;C: void &lt;init&gt;()&gt;[0@L26] invokespecial %this.&lt;init&gt;(), &lt;B: void &lt;init&gt;()&gt;[0@L23] invokespecial %this.&lt;init&gt;()]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]
-[&lt;TwoCall: void m()&gt;[1@L7] invokespecial temp$0.&lt;init&gt;(), &lt;A: void &lt;init&gt;()&gt;[0@L13] invokespecial %this.&lt;init&gt;()]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]
-[&lt;TwoCall: void m()&gt;[4@L8] invokespecial temp$1.&lt;init&gt;(), &lt;B: void &lt;init&gt;()&gt;[0@L23] invokespecial %this.&lt;init&gt;()]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]
-[&lt;TwoCall: void m()&gt;[5@L8] temp$2 = invokevirtual a.id(temp$1), &lt;A: B id(B)&gt;[0@L15] temp$0 = invokevirtual %this._id(b)]:&lt;A: B _id(B)&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]
-[&lt;TwoCall: void m()&gt;[5@L8] temp$2 = invokevirtual a.id(temp$1), &lt;A: B id(B)&gt;[0@L15] temp$0 = invokevirtual %this._id(b)]:&lt;A: B _id(B)&gt;/p, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]
-[&lt;TwoCall: void m()&gt;[8@L9] invokespecial temp$3.&lt;init&gt;(), &lt;C: void &lt;init&gt;()&gt;[0@L26] invokespecial %this.&lt;init&gt;()]:&lt;B: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]
-[&lt;TwoCall: void m()&gt;[9@L9] temp$4 = invokevirtual a.id(temp$3), &lt;A: B id(B)&gt;[0@L15] temp$0 = invokevirtual %this._id(b)]:&lt;A: B _id(B)&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]
-[&lt;TwoCall: void m()&gt;[9@L9] temp$4 = invokevirtual a.id(temp$3), &lt;A: B id(B)&gt;[0@L15] temp$0 = invokevirtual %this._id(b)]:&lt;A: B _id(B)&gt;/p, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[1@L7] invokespecial temp$0.&lt;init&gt;()]:&lt;A: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[4@L8] invokespecial temp$1.&lt;init&gt;()]:&lt;B: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[5@L8] temp$2 = invokevirtual a.id(temp$1)]:&lt;A: B id(B)&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[5@L8] temp$2 = invokevirtual a.id(temp$1)]:&lt;A: B id(B)&gt;/b, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[5@L8] temp$2 = invokevirtual a.id(temp$1)]:&lt;A: B id(B)&gt;/temp$0, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[8@L9] invokespecial temp$3.&lt;init&gt;()]:&lt;C: void &lt;init&gt;()&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[9@L9] temp$4 = invokevirtual a.id(temp$3)]:&lt;A: B id(B)&gt;/%this, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[9@L9] temp$4 = invokevirtual a.id(temp$3)]:&lt;A: B id(B)&gt;/b, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m(), &lt;TwoCall: void m()&gt;[9@L9] temp$4 = invokevirtual a.id(temp$3)]:&lt;A: B id(B)&gt;/temp$0, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/a, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/b, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/c, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/temp$0, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[0@L7] new A}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/temp$1, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/temp$2, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[3@L8] new B}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/temp$3, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]
-[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:&lt;TwoCall: void m()&gt;/temp$4, expected: [[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}], given: [[[&lt;TwoCall: void main(java.lang.String[])&gt;[0@L3] invokestatic TwoCall.m()]]:NewObj{&lt;TwoCall: void m()&gt;[7@L9] new C}]
-	at pascal.taie.analysis.pta.plugin.ResultProcessor.comparePointsToSet(ResultProcessor.java:174)
-	at pascal.taie.analysis.pta.plugin.ResultProcessor.process(ResultProcessor.java:72)
-	at pascal.taie.analysis.pta.cs.CSPTA.analyze(CSPTA.java:48)
-	at pascal.taie.analysis.pta.cs.CSPTA.analyze(CSPTA.java:32)
-	at pascal.taie.analysis.AnalysisManager.runInterproceduralAnalysis(AnalysisManager.java:124)
-	at pascal.taie.analysis.AnalysisManager.runAnalysis(AnalysisManager.java:62)
-	at pascal.taie.analysis.AnalysisManager.lambda$execute$0(AnalysisManager.java:49)
-	at pascal.taie.util.Timer.lambda$runAndCount$0(Timer.java:102)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:83)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:101)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:97)
-	at pascal.taie.analysis.AnalysisManager.lambda$execute$1(AnalysisManager.java:48)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at pascal.taie.analysis.AnalysisManager.execute(AnalysisManager.java:48)
-	at pascal.taie.Main.executePlan(Main.java:128)
-	at pascal.taie.Main.lambda$main$0(Main.java:46)
-	at pascal.taie.util.Timer.lambda$runAndCount$0(Timer.java:102)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:83)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:101)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:97)
-	at pascal.taie.Main.main(Main.java:38)
-	at pascal.taie.analysis.Tests.testPTA(Tests.java:59)
-	at pascal.taie.analysis.pta.CSPTATest.testTwoCall(CSPTATest.java:64)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:121)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-</failure>
-  </testcase>
-  <testcase name="testTwoType" classname="pascal.taie.analysis.pta.CSPTATest" time="1.715">
-    <failure message="java.lang.NullPointerException: HybridArrayHashMap does not permit null keys" type="java.lang.NullPointerException">java.lang.NullPointerException: HybridArrayHashMap does not permit null keys
-	at java.base/java.util.Objects.requireNonNull(Objects.java:246)
-	at pascal.taie.util.collection.HybridArrayHashMap.put(HybridArrayHashMap.java:139)
-	at java.base/java.util.Map.computeIfAbsent(Map.java:1004)
-	at pascal.taie.analysis.pta.core.cs.element.MapBasedCSManager.getOrCreateCSElement(MapBasedCSManager.java:49)
-	at pascal.taie.analysis.pta.core.cs.element.MapBasedCSManager.getCSObj(MapBasedCSManager.java:60)
-	at pascal.taie.analysis.pta.cs.Solver$StmtProcessor.visit(Solver.java:110)
-	at pascal.taie.analysis.pta.cs.Solver$StmtProcessor.visit(Solver.java:96)
-	at pascal.taie.ir.stmt.New.accept(New.java:43)
-	at pascal.taie.analysis.pta.cs.Solver.addReachable(Solver.java:88)
-	at pascal.taie.analysis.pta.cs.Solver.initialize(Solver.java:77)
-	at pascal.taie.analysis.pta.cs.Solver.solve(Solver.java:63)
-	at pascal.taie.analysis.pta.cs.CSPTA.analyze(CSPTA.java:46)
-	at pascal.taie.analysis.pta.cs.CSPTA.analyze(CSPTA.java:32)
-	at pascal.taie.analysis.AnalysisManager.runInterproceduralAnalysis(AnalysisManager.java:124)
-	at pascal.taie.analysis.AnalysisManager.runAnalysis(AnalysisManager.java:62)
-	at pascal.taie.analysis.AnalysisManager.lambda$execute$0(AnalysisManager.java:49)
-	at pascal.taie.util.Timer.lambda$runAndCount$0(Timer.java:102)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:83)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:101)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:97)
-	at pascal.taie.analysis.AnalysisManager.lambda$execute$1(AnalysisManager.java:48)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at pascal.taie.analysis.AnalysisManager.execute(AnalysisManager.java:48)
-	at pascal.taie.Main.executePlan(Main.java:128)
-	at pascal.taie.Main.lambda$main$0(Main.java:46)
-	at pascal.taie.util.Timer.lambda$runAndCount$0(Timer.java:102)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:83)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:101)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:97)
-	at pascal.taie.Main.main(Main.java:38)
-	at pascal.taie.analysis.Tests.testPTA(Tests.java:59)
-	at pascal.taie.analysis.pta.CSPTATest.testTwoType(CSPTATest.java:74)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:121)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-</failure>
-  </testcase>
-  <testcase name="testArray" classname="pascal.taie.analysis.pta.CSPTATest" time="1.81"/>
-  <testcase name="testCall" classname="pascal.taie.analysis.pta.CSPTATest" time="1.604"/>
-  <testcase name="testStaticField" classname="pascal.taie.analysis.pta.CSPTATest" time="1.722"/>
-  <testcase name="testTwoObject" classname="pascal.taie.analysis.pta.CSPTATest" time="1.564">
-    <failure message="pascal.taie.util.AnalysisException: Mismatches of points-to set&#10;[NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: null, given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]&#10;[NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/%this, expected: null, given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]&#10;[NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$0, expected: null, given: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, []:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]&#10;[NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$1, expected: null, given: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}, []:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}]&#10;[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: void &lt;init&gt;(List)&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]&#10;[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: null, given: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]&#10;[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:&lt;List: Iterator iterator()&gt;/temp$0, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]&#10;[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: void &lt;init&gt;(List)&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]&#10;[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: null, given: [[]:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]&#10;[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:&lt;List: Iterator iterator()&gt;/temp$0, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]&#10;[]:&lt;TwoObject: void m()&gt;/i1, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]&#10;[]:&lt;TwoObject: void m()&gt;/i2, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]&#10;[]:&lt;TwoObject: void m()&gt;/o1, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}], given: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}, []:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}]&#10;[]:&lt;TwoObject: void m()&gt;/o2, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}], given: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}, []:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}]&#10;[]:&lt;TwoObject: void m()&gt;/temp$4, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]&#10;[]:&lt;TwoObject: void m()&gt;/temp$5, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}], given: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}, []:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}]&#10;[]:&lt;TwoObject: void m()&gt;/temp$6, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]&#10;[]:&lt;TwoObject: void m()&gt;/temp$7, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}], given: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}, []:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}]&#10;[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}.this$0, expected: null, given: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, []:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]&#10;[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$0, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$1, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$0, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$1, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}.this$0, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}], given: null&#10;[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}.this$0, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}], given: null" type="pascal.taie.util.AnalysisException">pascal.taie.util.AnalysisException: Mismatches of points-to set
-[NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: null, given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]
-[NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/%this, expected: null, given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]
-[NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$0, expected: null, given: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, []:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]
-[NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$1, expected: null, given: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}, []:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}]
-[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: void &lt;init&gt;(List)&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]
-[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: null, given: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]
-[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:&lt;List: Iterator iterator()&gt;/temp$0, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]
-[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: void &lt;init&gt;(List)&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]
-[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: null, given: [[]:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]
-[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:&lt;List: Iterator iterator()&gt;/temp$0, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]
-[]:&lt;TwoObject: void m()&gt;/i1, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]
-[]:&lt;TwoObject: void m()&gt;/i2, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]
-[]:&lt;TwoObject: void m()&gt;/o1, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}], given: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}, []:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}]
-[]:&lt;TwoObject: void m()&gt;/o2, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}], given: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}, []:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}]
-[]:&lt;TwoObject: void m()&gt;/temp$4, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]
-[]:&lt;TwoObject: void m()&gt;/temp$5, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}], given: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}, []:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}]
-[]:&lt;TwoObject: void m()&gt;/temp$6, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: [[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]
-[]:&lt;TwoObject: void m()&gt;/temp$7, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}], given: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}, []:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}]
-[]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}.this$0, expected: null, given: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, []:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]
-[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$0, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$1, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[3@L12] new java.lang.Object}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$0, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;List$ListIterator: java.lang.Object next()&gt;/temp$1, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[9@L14] new java.lang.Object}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}, NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:&lt;java.lang.Object: void &lt;init&gt;()&gt;/%this, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}.this$0, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[0@L11] new List}], given: null
-[NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}]:NewObj{&lt;List: Iterator iterator()&gt;[0@L31] new List$ListIterator}.this$0, expected: [[]:NewObj{&lt;TwoObject: void m()&gt;[6@L13] new List}], given: null
-	at pascal.taie.analysis.pta.plugin.ResultProcessor.comparePointsToSet(ResultProcessor.java:174)
-	at pascal.taie.analysis.pta.plugin.ResultProcessor.process(ResultProcessor.java:72)
-	at pascal.taie.analysis.pta.cs.CSPTA.analyze(CSPTA.java:48)
-	at pascal.taie.analysis.pta.cs.CSPTA.analyze(CSPTA.java:32)
-	at pascal.taie.analysis.AnalysisManager.runInterproceduralAnalysis(AnalysisManager.java:124)
-	at pascal.taie.analysis.AnalysisManager.runAnalysis(AnalysisManager.java:62)
-	at pascal.taie.analysis.AnalysisManager.lambda$execute$0(AnalysisManager.java:49)
-	at pascal.taie.util.Timer.lambda$runAndCount$0(Timer.java:102)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:83)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:101)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:97)
-	at pascal.taie.analysis.AnalysisManager.lambda$execute$1(AnalysisManager.java:48)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at pascal.taie.analysis.AnalysisManager.execute(AnalysisManager.java:48)
-	at pascal.taie.Main.executePlan(Main.java:128)
-	at pascal.taie.Main.lambda$main$0(Main.java:46)
-	at pascal.taie.util.Timer.lambda$runAndCount$0(Timer.java:102)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:83)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:101)
-	at pascal.taie.util.Timer.runAndCount(Timer.java:97)
-	at pascal.taie.Main.main(Main.java:38)
-	at pascal.taie.analysis.Tests.testPTA(Tests.java:59)
-	at pascal.taie.analysis.pta.CSPTATest.testTwoObject(CSPTATest.java:69)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:121)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-</failure>
-  </testcase>
-  <testcase name="testInstanceField" classname="pascal.taie.analysis.pta.CSPTATest" time="1.536"/>
-  <testcase name="testAssign" classname="pascal.taie.analysis.pta.CSPTATest" time="1.472"/>
-  <testcase name="testOneObject" classname="pascal.taie.analysis.pta.CSPTATest" time="1.696"/>
+  <testcase name="testStoreLoad" classname="pascal.taie.analysis.pta.CSPTATest" time="4.388"/>
+  <testcase name="testOneCall" classname="pascal.taie.analysis.pta.CSPTATest" time="1.882"/>
+  <testcase name="testOneType" classname="pascal.taie.analysis.pta.CSPTATest" time="1.65"/>
+  <testcase name="testNew" classname="pascal.taie.analysis.pta.CSPTATest" time="1.673"/>
+  <testcase name="testTwoCall" classname="pascal.taie.analysis.pta.CSPTATest" time="1.653"/>
+  <testcase name="testTwoType" classname="pascal.taie.analysis.pta.CSPTATest" time="1.772"/>
+  <testcase name="testArray" classname="pascal.taie.analysis.pta.CSPTATest" time="1.802"/>
+  <testcase name="testCall" classname="pascal.taie.analysis.pta.CSPTATest" time="1.657"/>
+  <testcase name="testStaticField" classname="pascal.taie.analysis.pta.CSPTATest" time="1.739"/>
+  <testcase name="testTwoObject" classname="pascal.taie.analysis.pta.CSPTATest" time="1.612"/>
+  <testcase name="testInstanceField" classname="pascal.taie.analysis.pta.CSPTATest" time="1.646"/>
+  <testcase name="testAssign" classname="pascal.taie.analysis.pta.CSPTATest" time="1.706"/>
+  <testcase name="testOneObject" classname="pascal.taie.analysis.pta.CSPTATest" time="1.734"/>
   <system-out><![CDATA[Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9162 classes with 89829 methods in the world
-WorldBuilder finishes, elapsed time: 3.20s
+WorldBuilder finishes, elapsed time: 3.70s
 cspta starts ...
-[[]:NewObj{<StoreLoad: void main(java.lang.String[])>[0@L4] new A}]
-[[]:NewObj{<StoreLoad: void main(java.lang.String[])>[3@L5] new B}]
 -------------- Pointer analysis statistics: --------------
 #var pointers:                9 (insens) / 9 (sens)
 #var points-to:               10 (insens) / 10 (sens)
@@ -411,21 +31,18 @@ cspta starts ...
 #call graph edges:            4 (insens) / 4 (sens)
 ----------------------------------------
 Comparing points-to set with src\test\resources\pta\cspta\StoreLoad-expected.txt ...
-cspta finishes, elapsed time: 0.10s
+cspta finishes, elapsed time: 0.11s
 class-dumper starts ...
 Dumping 3 classes to output ...
 class-dumper finishes, elapsed time: 0.02s
-Tai-e finishes, elapsed time: 3.47s
+Tai-e finishes, elapsed time: 3.99s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9165 classes with 89837 methods in the world
-WorldBuilder finishes, elapsed time: 1.99s
+WorldBuilder finishes, elapsed time: 1.82s
 cspta starts ...
-[[]:NewObj{<OneCall: void main(java.lang.String[])>[0@L3] new C}]
-[[]:NewObj{<C: void m()>[0@L12] new One}]
-[[]:NewObj{<C: void m()>[3@L13] new Two}]
 -------------- Pointer analysis statistics: --------------
 #var pointers:                21 (insens) / 25 (sens)
 #var points-to:               21 (insens) / 22 (sens)
@@ -439,26 +56,37 @@ Comparing points-to set with src\test\resources\pta\cspta\OneCall-expected.txt .
 cspta finishes, elapsed time: 0.03s
 class-dumper starts ...
 Dumping 6 classes to output ...
-class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 2.05s
+class-dumper finishes, elapsed time: 0.01s
+Tai-e finishes, elapsed time: 1.88s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9164 classes with 89835 methods in the world
-WorldBuilder finishes, elapsed time: 1.54s
+WorldBuilder finishes, elapsed time: 1.61s
 cspta starts ...
+-------------- Pointer analysis statistics: --------------
+#var pointers:                26 (insens) / 34 (sens)
+#var points-to:               46 (insens) / 46 (sens)
+#static field points-to:      0 (sens)
+#instance field points-to:    5 (sens)
+#array points-to:             0 (sens)
+#reachable methods:           10 (insens) / 16 (sens)
+#call graph edges:            19 (insens) / 21 (sens)
+----------------------------------------
+Comparing points-to set with src\test\resources\pta\cspta\OneType-expected.txt ...
+cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+Dumping 5 classes to output ...
+class-dumper finishes, elapsed time: 0.00s
+Tai-e finishes, elapsed time: 1.65s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9163 classes with 89830 methods in the world
-WorldBuilder finishes, elapsed time: 1.62s
+WorldBuilder finishes, elapsed time: 1.65s
 cspta starts ...
-[[]:NewObj{<New: void main(java.lang.String[])>[0@L4] new A}]
-[[]:NewObj{<New: void main(java.lang.String[])>[3@L5] new B}]
-[[]:NewObj{<New: void main(java.lang.String[])>[6@L6] new C}]
-[[]:NewObj{<New: void main(java.lang.String[])>[9@L7] new C}]
 -------------- Pointer analysis statistics: --------------
 #var pointers:                12 (insens) / 12 (sens)
 #var points-to:               18 (insens) / 18 (sens)
@@ -473,17 +101,14 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 4 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.64s
+Tai-e finishes, elapsed time: 1.67s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9163 classes with 89833 methods in the world
-WorldBuilder finishes, elapsed time: 1.73s
+WorldBuilder finishes, elapsed time: 1.63s
 cspta starts ...
-[[[<TwoCall: void main(java.lang.String[])>[0@L3] invokestatic TwoCall.m()]]:NewObj{<TwoCall: void m()>[0@L7] new A}]
-[[[<TwoCall: void main(java.lang.String[])>[0@L3] invokestatic TwoCall.m()]]:NewObj{<TwoCall: void m()>[3@L8] new B}]
-[[[<TwoCall: void main(java.lang.String[])>[0@L3] invokestatic TwoCall.m()]]:NewObj{<TwoCall: void m()>[7@L9] new C}]
 -------------- Pointer analysis statistics: --------------
 #var pointers:                17 (insens) / 25 (sens)
 #var points-to:               23 (insens) / 25 (sens)
@@ -494,25 +119,40 @@ cspta starts ...
 #call graph edges:            10 (insens) / 12 (sens)
 ----------------------------------------
 Comparing points-to set with src\test\resources\pta\cspta\TwoCall-expected.txt ...
+cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+Dumping 4 classes to output ...
+class-dumper finishes, elapsed time: 0.00s
+Tai-e finishes, elapsed time: 1.65s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9165 classes with 89837 methods in the world
-WorldBuilder finishes, elapsed time: 1.70s
+WorldBuilder finishes, elapsed time: 1.74s
 cspta starts ...
+-------------- Pointer analysis statistics: --------------
+#var pointers:                38 (insens) / 52 (sens)
+#var points-to:               64 (insens) / 68 (sens)
+#static field points-to:      0 (sens)
+#instance field points-to:    8 (sens)
+#array points-to:             0 (sens)
+#reachable methods:           11 (insens) / 20 (sens)
+#call graph edges:            24 (insens) / 27 (sens)
+----------------------------------------
+Comparing points-to set with src\test\resources\pta\cspta\TwoType-expected.txt ...
+cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+Dumping 6 classes to output ...
+class-dumper finishes, elapsed time: 0.00s
+Tai-e finishes, elapsed time: 1.77s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9162 classes with 89830 methods in the world
-WorldBuilder finishes, elapsed time: 1.78s
+WorldBuilder finishes, elapsed time: 1.77s
 cspta starts ...
-[[]:NewObj{<Array: void main(java.lang.String[])>[1@L4] newarray (A)[%intconst0]}]
-[[]:NewObj{<Array: void main(java.lang.String[])>[2@L5] new A}]
-[[]:NewObj{<Array: void main(java.lang.String[])>[6@L6] new A}]
-[[]:NewObj{<Array: void main(java.lang.String[])>[13@L9] newarray (B)[%intconst0]}]
-[[]:NewObj{<Array: void main(java.lang.String[])>[14@L10] new A}]
 -------------- Pointer analysis statistics: --------------
 #var pointers:                14 (insens) / 14 (sens)
 #var points-to:               17 (insens) / 17 (sens)
@@ -527,17 +167,14 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 3 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.81s
+Tai-e finishes, elapsed time: 1.80s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9163 classes with 89831 methods in the world
-WorldBuilder finishes, elapsed time: 1.58s
+WorldBuilder finishes, elapsed time: 1.63s
 cspta starts ...
-[[]:NewObj{<Call: void main(java.lang.String[])>[0@L4] new A}]
-[[]:NewObj{<Call: void main(java.lang.String[])>[3@L5] new B}]
-[[]:NewObj{<Call: void main(java.lang.String[])>[6@L6] new C}]
 -------------- Pointer analysis statistics: --------------
 #var pointers:                15 (insens) / 15 (sens)
 #var points-to:               17 (insens) / 17 (sens)
@@ -552,15 +189,14 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 4 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.60s
+Tai-e finishes, elapsed time: 1.66s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9162 classes with 89829 methods in the world
-WorldBuilder finishes, elapsed time: 1.70s
+WorldBuilder finishes, elapsed time: 1.72s
 cspta starts ...
-[[]:NewObj{<StaticField: void main(java.lang.String[])>[0@L4] new B}]
 -------------- Pointer analysis statistics: --------------
 #var pointers:                4 (insens) / 4 (sens)
 #var points-to:               4 (insens) / 4 (sens)
@@ -575,47 +211,36 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 3 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.72s
+Tai-e finishes, elapsed time: 1.74s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9163 classes with 89834 methods in the world
-WorldBuilder finishes, elapsed time: 1.54s
+WorldBuilder finishes, elapsed time: 1.59s
 cspta starts ...
-[[]:NewObj{<TwoObject: void m()>[0@L11] new List}]
-[[]:NewObj{<TwoObject: void m()>[3@L12] new java.lang.Object}]
-[[]:NewObj{<TwoObject: void m()>[6@L13] new List}]
-[[]:NewObj{<TwoObject: void m()>[9@L14] new java.lang.Object}]
-[[]:NewObj{<List: Iterator iterator()>[0@L31] new List$ListIterator}]
-[[]:NewObj{<List: Iterator iterator()>[0@L31] new List$ListIterator}]
 -------------- Pointer analysis statistics: --------------
-#var pointers:                25 (insens) / 36 (sens)
-#var points-to:               40 (insens) / 42 (sens)
+#var pointers:                25 (insens) / 40 (sens)
+#var points-to:               36 (insens) / 40 (sens)
 #static field points-to:      0 (sens)
 #instance field points-to:    4 (sens)
 #array points-to:             0 (sens)
-#reachable methods:           8 (insens) / 16 (sens)
+#reachable methods:           8 (insens) / 18 (sens)
 #call graph edges:            14 (insens) / 17 (sens)
 ----------------------------------------
 Comparing points-to set with src\test\resources\pta\cspta\TwoObject-expected.txt ...
+cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+Dumping 4 classes to output ...
+class-dumper finishes, elapsed time: 0.00s
+Tai-e finishes, elapsed time: 1.61s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9164 classes with 89835 methods in the world
-WorldBuilder finishes, elapsed time: 1.51s
+WorldBuilder finishes, elapsed time: 1.62s
 cspta starts ...
-[[]:NewObj{<InstanceField: void main(java.lang.String[])>[0@L4] new A}]
-[[]:NewObj{<A: void longAP()>[0@L15] new A}]
-[[]:NewObj{<A: void longAP()>[3@L16] new B}]
-[[]:NewObj{<A: void longAP()>[7@L17] new C}]
-[[]:NewObj{<A: void longAP()>[12@L18] new D}]
-[[]:NewObj{<A: void cycle()>[0@L23] new A}]
-[[]:NewObj{<A: void cycle()>[3@L24] new B}]
-[[]:NewObj{<A: void callField()>[0@L31] new A}]
-[[]:NewObj{<A: void callField()>[3@L32] new B}]
-[[]:NewObj{<B: C foo()>[0@L43] new C}]
 -------------- Pointer analysis statistics: --------------
 #var pointers:                38 (insens) / 38 (sens)
 #var points-to:               53 (insens) / 53 (sens)
@@ -630,16 +255,14 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 5 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.54s
+Tai-e finishes, elapsed time: 1.64s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9162 classes with 89829 methods in the world
-WorldBuilder finishes, elapsed time: 1.45s
+WorldBuilder finishes, elapsed time: 1.68s
 cspta starts ...
-[[]:NewObj{<Assign: void main(java.lang.String[])>[0@L4] new A}]
-[[]:NewObj{<Assign: void main(java.lang.String[])>[5@L7] new B}]
 -------------- Pointer analysis statistics: --------------
 #var pointers:                9 (insens) / 9 (sens)
 #var points-to:               14 (insens) / 14 (sens)
@@ -654,18 +277,14 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 3 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.47s
+Tai-e finishes, elapsed time: 1.71s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9162 classes with 89833 methods in the world
-WorldBuilder finishes, elapsed time: 1.68s
+WorldBuilder finishes, elapsed time: 1.71s
 cspta starts ...
-[[]:NewObj{<OneObject: void m()>[0@L7] new A}]
-[[]:NewObj{<OneObject: void m()>[3@L8] new A}]
-[[]:NewObj{<OneObject: void m()>[6@L9] new B}]
-[[]:NewObj{<OneObject: void m()>[9@L10] new B}]
 -------------- Pointer analysis statistics: --------------
 #var pointers:                19 (insens) / 28 (sens)
 #var points-to:               28 (insens) / 28 (sens)
@@ -680,7 +299,7 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 3 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.70s
+Tai-e finishes, elapsed time: 1.73s
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

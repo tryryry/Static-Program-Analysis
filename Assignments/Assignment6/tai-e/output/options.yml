@@ -2,13 +2,15 @@ optionsFile: null
 printHelp: false
 javaVersion: 11
 prependJVM: true
-classPath: src/test/resources/pta/cspta/
-mainClass: TwoCall
+classPath: src/test/resources/pta/cspta
+mainClass: OneObject
 worldBuilderClass: pascal.taie.frontend.soot.SootWorldBuilder
 preBuildIR: false
 scope: app
 nativeModel: true
 dumpClasses: false
-planFile: E:\Users\Dell\Documents\MyUniversity\S1\Courses\Static_Program_Analysis\Static_Program_Analysis\Assignments\Assignment6\tai-e\plan.yml
-analyses: {}
+planFile: null
+analyses:
+  cspta: implicit-entries:false;action:compare;file:src\test\resources\pta\cspta\OneObject-expected.txt;cs:1-obj
+  class-dumper: ""
 onlyGenPlan: false

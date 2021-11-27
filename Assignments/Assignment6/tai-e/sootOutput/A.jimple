@@ -1,21 +1,22 @@
 class A extends java.lang.Object
 {
+    B f;
 
-    B id(B)
+    void set(B)
     {
         A this;
-        B b, temp$0;
+        B b;
 
         this := @this: A;
 
         b := @parameter0: B;
 
-        temp$0 = virtualinvoke this.<A: B _id(B)>(b);
+        virtualinvoke this.<A: void doSet(B)>(b);
 
-        return temp$0;
+        return;
     }
 
-    B _id(B)
+    void doSet(B)
     {
         A this;
         B p;
@@ -24,7 +25,21 @@ class A extends java.lang.Object
 
         p := @parameter0: B;
 
-        return p;
+        this.<A: B f> = p;
+
+        return;
+    }
+
+    B get()
+    {
+        A this;
+        B temp$0;
+
+        this := @this: A;
+
+        temp$0 = this.<A: B f>;
+
+        return temp$0;
     }
 
     void <init>()

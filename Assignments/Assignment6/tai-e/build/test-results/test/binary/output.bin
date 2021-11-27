@@ -3,10 +3,8 @@
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9162 classes with 89829 methods in the world
-,WorldBuilder finishes, elapsed time: 3.20s
+,WorldBuilder finishes, elapsed time: 3.70s
 cspta starts ...
-E[[]:NewObj{<StoreLoad: void main(java.lang.String[])>[0@L4] new A}]
-E[[]:NewObj{<StoreLoad: void main(java.lang.String[])>[3@L5] new B}]
 <-------------- Pointer analysis statistics: --------------
 5#var pointers:                9 (insens) / 9 (sens)
 7#var points-to:               10 (insens) / 10 (sens)
@@ -17,21 +15,18 @@
 5#call graph edges:            4 (insens) / 4 (sens)
 *----------------------------------------
 VComparing points-to set with src\test\resources\pta\cspta\StoreLoad-expected.txt ...
-%cspta finishes, elapsed time: 0.10s
+%cspta finishes, elapsed time: 0.11s
 class-dumper starts ...
 !Dumping 3 classes to output ...
 ,class-dumper finishes, elapsed time: 0.02s
-%Tai-e finishes, elapsed time: 3.47s
+%Tai-e finishes, elapsed time: 3.99s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9165 classes with 89837 methods in the world
-,WorldBuilder finishes, elapsed time: 1.99s
+,WorldBuilder finishes, elapsed time: 1.82s
 cspta starts ...
-C[[]:NewObj{<OneCall: void main(java.lang.String[])>[0@L3] new C}]
-+[[]:NewObj{<C: void m()>[0@L12] new One}]
-+[[]:NewObj{<C: void m()>[3@L13] new Two}]
 <-------------- Pointer analysis statistics: --------------
 7#var pointers:                21 (insens) / 25 (sens)
 7#var points-to:               21 (insens) / 22 (sens)
@@ -45,26 +40,37 @@
 %cspta finishes, elapsed time: 0.03s
 class-dumper starts ...
 !Dumping 6 classes to output ...
-,class-dumper finishes, elapsed time: 0.00s
-%Tai-e finishes, elapsed time: 2.05s
+,class-dumper finishes, elapsed time: 0.01s
+%Tai-e finishes, elapsed time: 1.88s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9164 classes with 89835 methods in the world
-,WorldBuilder finishes, elapsed time: 1.54s
+,WorldBuilder finishes, elapsed time: 1.61s
 cspta starts ...
+<-------------- Pointer analysis statistics: --------------
+7#var pointers:                26 (insens) / 34 (sens)
+7#var points-to:               46 (insens) / 46 (sens)
+(#static field points-to:      0 (sens)
+(#instance field points-to:    5 (sens)
+(#array points-to:             0 (sens)
+7#reachable methods:           10 (insens) / 16 (sens)
+7#call graph edges:            19 (insens) / 21 (sens)
+*----------------------------------------
+TComparing points-to set with src\test\resources\pta\cspta\OneType-expected.txt ...
+%cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+!Dumping 5 classes to output ...
+,class-dumper finishes, elapsed time: 0.00s
+%Tai-e finishes, elapsed time: 1.65s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9163 classes with 89830 methods in the world
-,WorldBuilder finishes, elapsed time: 1.62s
+,WorldBuilder finishes, elapsed time: 1.65s
 cspta starts ...
-?[[]:NewObj{<New: void main(java.lang.String[])>[0@L4] new A}]
-?[[]:NewObj{<New: void main(java.lang.String[])>[3@L5] new B}]
-?[[]:NewObj{<New: void main(java.lang.String[])>[6@L6] new C}]
-?[[]:NewObj{<New: void main(java.lang.String[])>[9@L7] new C}]
 <-------------- Pointer analysis statistics: --------------
 7#var pointers:                12 (insens) / 12 (sens)
 7#var points-to:               18 (insens) / 18 (sens)
@@ -79,17 +85,14 @@
 class-dumper starts ...
 !Dumping 4 classes to output ...
 ,class-dumper finishes, elapsed time: 0.00s
-%Tai-e finishes, elapsed time: 1.64s
+%Tai-e finishes, elapsed time: 1.67s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9163 classes with 89833 methods in the world
-,WorldBuilder finishes, elapsed time: 1.73s
+,WorldBuilder finishes, elapsed time: 1.63s
 cspta starts ...
-w[[[<TwoCall: void main(java.lang.String[])>[0@L3] invokestatic TwoCall.m()]]:NewObj{<TwoCall: void m()>[0@L7] new A}]
-w[[[<TwoCall: void main(java.lang.String[])>[0@L3] invokestatic TwoCall.m()]]:NewObj{<TwoCall: void m()>[3@L8] new B}]
-w[[[<TwoCall: void main(java.lang.String[])>[0@L3] invokestatic TwoCall.m()]]:NewObj{<TwoCall: void m()>[7@L9] new C}]
 <-------------- Pointer analysis statistics: --------------
 7#var pointers:                17 (insens) / 25 (sens)
 7#var points-to:               23 (insens) / 25 (sens)
@@ -100,25 +103,40 @@
 7#call graph edges:            10 (insens) / 12 (sens)
 *----------------------------------------
 TComparing points-to set with src\test\resources\pta\cspta\TwoCall-expected.txt ...
+%cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+!Dumping 4 classes to output ...
+,class-dumper finishes, elapsed time: 0.00s
+%Tai-e finishes, elapsed time: 1.65s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9165 classes with 89837 methods in the world
-,WorldBuilder finishes, elapsed time: 1.70s
+,WorldBuilder finishes, elapsed time: 1.74s
 cspta starts ...
+<-------------- Pointer analysis statistics: --------------
+7#var pointers:                38 (insens) / 52 (sens)
+7#var points-to:               64 (insens) / 68 (sens)
+(#static field points-to:      0 (sens)
+(#instance field points-to:    8 (sens)
+(#array points-to:             0 (sens)
+7#reachable methods:           11 (insens) / 20 (sens)
+7#call graph edges:            24 (insens) / 27 (sens)
+*----------------------------------------
+TComparing points-to set with src\test\resources\pta\cspta\TwoType-expected.txt ...
+%cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+!Dumping 6 classes to output ...
+,class-dumper finishes, elapsed time: 0.00s
+%Tai-e finishes, elapsed time: 1.77s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9162 classes with 89830 methods in the world
-,WorldBuilder finishes, elapsed time: 1.78s
+,WorldBuilder finishes, elapsed time: 1.77s
 cspta starts ...
-T[[]:NewObj{<Array: void main(java.lang.String[])>[1@L4] newarray (A)[%intconst0]}]
-A[[]:NewObj{<Array: void main(java.lang.String[])>[2@L5] new A}]
-A[[]:NewObj{<Array: void main(java.lang.String[])>[6@L6] new A}]
-U[[]:NewObj{<Array: void main(java.lang.String[])>[13@L9] newarray (B)[%intconst0]}]
-C[[]:NewObj{<Array: void main(java.lang.String[])>[14@L10] new A}]
 <-------------- Pointer analysis statistics: --------------
 7#var pointers:                14 (insens) / 14 (sens)
 7#var points-to:               17 (insens) / 17 (sens)
@@ -133,17 +151,14 @@
 class-dumper starts ...
 !Dumping 3 classes to output ...
 ,class-dumper finishes, elapsed time: 0.00s
-%Tai-e finishes, elapsed time: 1.81s
+%Tai-e finishes, elapsed time: 1.80s
 	Tai-e starts ...
 	'Writing options to output\options.yml
 	0Writing analysis plan to output\tai-e-plan.yml
 	WorldBuilder starts ...
 	.9163 classes with 89831 methods in the world
-	,WorldBuilder finishes, elapsed time: 1.58s
+	,WorldBuilder finishes, elapsed time: 1.63s
 	cspta starts ...
-	@[[]:NewObj{<Call: void main(java.lang.String[])>[0@L4] new A}]
-	@[[]:NewObj{<Call: void main(java.lang.String[])>[3@L5] new B}]
-	@[[]:NewObj{<Call: void main(java.lang.String[])>[6@L6] new C}]
 	<-------------- Pointer analysis statistics: --------------
 	7#var pointers:                15 (insens) / 15 (sens)
 	7#var points-to:               17 (insens) / 17 (sens)
@@ -158,7 +173,7 @@
 	class-dumper starts ...
 	!Dumping 4 classes to output ...
 	,class-dumper finishes, elapsed time: 0.00s
-	%Tai-e finishes, elapsed time: 1.60s
+	%Tai-e finishes, elapsed time: 1.66s
 
 Tai-e starts ...
 
@@ -170,11 +185,9 @@
 
 .9162 classes with 89829 methods in the world
 
-,WorldBuilder finishes, elapsed time: 1.70s
+,WorldBuilder finishes, elapsed time: 1.72s
 
 cspta starts ...
-
-G[[]:NewObj{<StaticField: void main(java.lang.String[])>[0@L4] new B}]
 
 <-------------- Pointer analysis statistics: --------------
 
@@ -204,47 +217,36 @@ XComparing points-to set with src\test\resources\pta\cspta\StaticField-expected.
 
 ,class-dumper finishes, elapsed time: 0.00s
 
-%Tai-e finishes, elapsed time: 1.72s
+%Tai-e finishes, elapsed time: 1.74s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9163 classes with 89834 methods in the world
-,WorldBuilder finishes, elapsed time: 1.54s
+,WorldBuilder finishes, elapsed time: 1.59s
 cspta starts ...
-4[[]:NewObj{<TwoObject: void m()>[0@L11] new List}]
-@[[]:NewObj{<TwoObject: void m()>[3@L12] new java.lang.Object}]
-4[[]:NewObj{<TwoObject: void m()>[6@L13] new List}]
-@[[]:NewObj{<TwoObject: void m()>[9@L14] new java.lang.Object}]
-G[[]:NewObj{<List: Iterator iterator()>[0@L31] new List$ListIterator}]
-G[[]:NewObj{<List: Iterator iterator()>[0@L31] new List$ListIterator}]
 <-------------- Pointer analysis statistics: --------------
-7#var pointers:                25 (insens) / 36 (sens)
-7#var points-to:               40 (insens) / 42 (sens)
+7#var pointers:                25 (insens) / 40 (sens)
+7#var points-to:               36 (insens) / 40 (sens)
 (#static field points-to:      0 (sens)
 (#instance field points-to:    4 (sens)
 (#array points-to:             0 (sens)
-6#reachable methods:           8 (insens) / 16 (sens)
+6#reachable methods:           8 (insens) / 18 (sens)
 7#call graph edges:            14 (insens) / 17 (sens)
 *----------------------------------------
 VComparing points-to set with src\test\resources\pta\cspta\TwoObject-expected.txt ...
+%cspta finishes, elapsed time: 0.01s
+class-dumper starts ...
+!Dumping 4 classes to output ...
+,class-dumper finishes, elapsed time: 0.00s
+%Tai-e finishes, elapsed time: 1.61s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9164 classes with 89835 methods in the world
-,WorldBuilder finishes, elapsed time: 1.51s
+,WorldBuilder finishes, elapsed time: 1.62s
 cspta starts ...
-I[[]:NewObj{<InstanceField: void main(java.lang.String[])>[0@L4] new A}]
-.[[]:NewObj{<A: void longAP()>[0@L15] new A}]
-.[[]:NewObj{<A: void longAP()>[3@L16] new B}]
-.[[]:NewObj{<A: void longAP()>[7@L17] new C}]
-/[[]:NewObj{<A: void longAP()>[12@L18] new D}]
--[[]:NewObj{<A: void cycle()>[0@L23] new A}]
--[[]:NewObj{<A: void cycle()>[3@L24] new B}]
-1[[]:NewObj{<A: void callField()>[0@L31] new A}]
-1[[]:NewObj{<A: void callField()>[3@L32] new B}]
-([[]:NewObj{<B: C foo()>[0@L43] new C}]
 <-------------- Pointer analysis statistics: --------------
 7#var pointers:                38 (insens) / 38 (sens)
 7#var points-to:               53 (insens) / 53 (sens)
@@ -259,16 +261,14 @@ XComparing points-to set with src\test\resources\pta\cspta\StaticField-expected.
 class-dumper starts ...
 !Dumping 5 classes to output ...
 ,class-dumper finishes, elapsed time: 0.00s
-%Tai-e finishes, elapsed time: 1.54s
+%Tai-e finishes, elapsed time: 1.64s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9162 classes with 89829 methods in the world
-,WorldBuilder finishes, elapsed time: 1.45s
+,WorldBuilder finishes, elapsed time: 1.68s
 cspta starts ...
-B[[]:NewObj{<Assign: void main(java.lang.String[])>[0@L4] new A}]
-B[[]:NewObj{<Assign: void main(java.lang.String[])>[5@L7] new B}]
 <-------------- Pointer analysis statistics: --------------
 5#var pointers:                9 (insens) / 9 (sens)
 7#var points-to:               14 (insens) / 14 (sens)
@@ -283,18 +283,14 @@ XComparing points-to set with src\test\resources\pta\cspta\StaticField-expected.
 class-dumper starts ...
 !Dumping 3 classes to output ...
 ,class-dumper finishes, elapsed time: 0.00s
-%Tai-e finishes, elapsed time: 1.47s
+%Tai-e finishes, elapsed time: 1.71s
 Tai-e starts ...
 'Writing options to output\options.yml
 0Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 .9162 classes with 89833 methods in the world
-,WorldBuilder finishes, elapsed time: 1.68s
+,WorldBuilder finishes, elapsed time: 1.71s
 cspta starts ...
-0[[]:NewObj{<OneObject: void m()>[0@L7] new A}]
-0[[]:NewObj{<OneObject: void m()>[3@L8] new A}]
-0[[]:NewObj{<OneObject: void m()>[6@L9] new B}]
-1[[]:NewObj{<OneObject: void m()>[9@L10] new B}]
 <-------------- Pointer analysis statistics: --------------
 7#var pointers:                19 (insens) / 28 (sens)
 7#var points-to:               28 (insens) / 28 (sens)
@@ -309,4 +305,4 @@ XComparing points-to set with src\test\resources\pta\cspta\StaticField-expected.
 class-dumper starts ...
 !Dumping 3 classes to output ...
 ,class-dumper finishes, elapsed time: 0.00s
-%Tai-e finishes, elapsed time: 1.70s
+%Tai-e finishes, elapsed time: 1.73s

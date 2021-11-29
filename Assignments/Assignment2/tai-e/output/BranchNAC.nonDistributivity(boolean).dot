@@ -1,0 +1,33 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: %intconst0 = 0";
+  "1: if (b == %intconst0) goto 7";
+  "2: goto 3";
+  "3: nop";
+  "4: x = 2";
+  "5: y = 3";
+  "6: goto 10";
+  "7: nop";
+  "8: x = 3";
+  "9: y = 2";
+  "10: nop";
+  "11: z = x + y";
+  "12: return";
+  "Exit";
+  "Entry" -> "0: %intconst0 = 0" [label="ENTRY"];
+  "0: %intconst0 = 0" -> "1: if (b == %intconst0) goto 7" [label="FALL_THROUGH"];
+  "1: if (b == %intconst0) goto 7" -> "7: nop" [label="IF_TRUE"];
+  "1: if (b == %intconst0) goto 7" -> "2: goto 3" [label="IF_FALSE"];
+  "2: goto 3" -> "3: nop" [label="GOTO"];
+  "3: nop" -> "4: x = 2" [label="FALL_THROUGH"];
+  "4: x = 2" -> "5: y = 3" [label="FALL_THROUGH"];
+  "5: y = 3" -> "6: goto 10" [label="FALL_THROUGH"];
+  "6: goto 10" -> "10: nop" [label="GOTO"];
+  "7: nop" -> "8: x = 3" [label="FALL_THROUGH"];
+  "8: x = 3" -> "9: y = 2" [label="FALL_THROUGH"];
+  "9: y = 2" -> "10: nop" [label="FALL_THROUGH"];
+  "10: nop" -> "11: z = x + y" [label="FALL_THROUGH"];
+  "11: z = x + y" -> "12: return" [label="FALL_THROUGH"];
+  "12: return" -> "Exit" [label="RETURN"];
+}

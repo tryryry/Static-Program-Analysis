@@ -1,0 +1,136 @@
+class BranchNAC extends java.lang.Object
+{
+
+    void NAC1(boolean)
+    {
+        BranchNAC this;
+        boolean b;
+        int x, temp$0, temp$1, y;
+
+        this := @this: BranchNAC;
+
+        b := @parameter0: boolean;
+
+        if b == 0 goto label2;
+
+        goto label1;
+
+     label1:
+        nop;
+
+        temp$0 = 10;
+
+        x = temp$0;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$1 = 20;
+
+        x = temp$1;
+
+     label3:
+        nop;
+
+        y = x;
+
+        return;
+    }
+
+    void NAC2(boolean, int)
+    {
+        BranchNAC this;
+        boolean b;
+        int p, x, undef, y;
+
+        this := @this: BranchNAC;
+
+        b := @parameter0: boolean;
+
+        p := @parameter1: int;
+
+        if b == 0 goto label2;
+
+        goto label1;
+
+     label1:
+        nop;
+
+        x = undef;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        x = p;
+
+     label3:
+        nop;
+
+        y = x;
+
+        return;
+    }
+
+    void nonDistributivity(boolean)
+    {
+        BranchNAC this;
+        boolean b;
+        int x, y, temp$0, temp$1, temp$2, temp$3, z, temp$4;
+
+        this := @this: BranchNAC;
+
+        b := @parameter0: boolean;
+
+        if b == 0 goto label2;
+
+        goto label1;
+
+     label1:
+        nop;
+
+        temp$0 = 2;
+
+        x = temp$0;
+
+        temp$1 = 3;
+
+        y = temp$1;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$2 = 3;
+
+        x = temp$2;
+
+        temp$3 = 2;
+
+        y = temp$3;
+
+     label3:
+        nop;
+
+        temp$4 = x;
+
+        z = temp$4 + y;
+
+        return;
+    }
+
+    void <init>()
+    {
+        BranchNAC this;
+
+        this := @this: BranchNAC;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

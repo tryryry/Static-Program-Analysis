@@ -1,0 +1,6 @@
+- id: cg
+  options:
+    algorithm: cha
+    action: compare
+    file: src\test\resources\cha\Interface-expected.txt
+    pta: null

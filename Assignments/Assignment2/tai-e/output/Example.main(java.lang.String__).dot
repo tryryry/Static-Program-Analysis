@@ -1,0 +1,24 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: a = 6";
+  "1: temp$1 = invokestatic Example.addOne(a)@<Example: void main(java.lang.String[])>:1(@L6)";
+  "2: b = temp$1";
+  "3: %intconst0 = 3";
+  "4: c = b - %intconst0";
+  "5: temp$3 = invokestatic Example.ten()@<Example: void main(java.lang.String[])>:5(@L8)";
+  "6: b = temp$3";
+  "7: c = a * b";
+  "8: return";
+  "Exit";
+  "Entry" -> "0: a = 6" [label="ENTRY"];
+  "0: a = 6" -> "1: temp$1 = invokestatic Example.addOne(a)@<Example: void main(java.lang.String[])>:1(@L6)" [label="FALL_THROUGH"];
+  "1: temp$1 = invokestatic Example.addOne(a)@<Example: void main(java.lang.String[])>:1(@L6)" -> "2: b = temp$1" [label="FALL_THROUGH"];
+  "2: b = temp$1" -> "3: %intconst0 = 3" [label="FALL_THROUGH"];
+  "3: %intconst0 = 3" -> "4: c = b - %intconst0" [label="FALL_THROUGH"];
+  "4: c = b - %intconst0" -> "5: temp$3 = invokestatic Example.ten()@<Example: void main(java.lang.String[])>:5(@L8)" [label="FALL_THROUGH"];
+  "5: temp$3 = invokestatic Example.ten()@<Example: void main(java.lang.String[])>:5(@L8)" -> "6: b = temp$3" [label="FALL_THROUGH"];
+  "6: b = temp$3" -> "7: c = a * b" [label="FALL_THROUGH"];
+  "7: c = a * b" -> "8: return" [label="FALL_THROUGH"];
+  "8: return" -> "Exit" [label="RETURN"];
+}

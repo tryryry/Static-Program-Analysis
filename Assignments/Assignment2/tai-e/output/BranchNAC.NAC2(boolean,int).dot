@@ -1,0 +1,29 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: %intconst0 = 0";
+  "1: if (b == %intconst0) goto 6";
+  "2: goto 3";
+  "3: nop";
+  "4: x = undef";
+  "5: goto 8";
+  "6: nop";
+  "7: x = p";
+  "8: nop";
+  "9: y = x";
+  "10: return";
+  "Exit";
+  "Entry" -> "0: %intconst0 = 0" [label="ENTRY"];
+  "0: %intconst0 = 0" -> "1: if (b == %intconst0) goto 6" [label="FALL_THROUGH"];
+  "1: if (b == %intconst0) goto 6" -> "6: nop" [label="IF_TRUE"];
+  "1: if (b == %intconst0) goto 6" -> "2: goto 3" [label="IF_FALSE"];
+  "2: goto 3" -> "3: nop" [label="GOTO"];
+  "3: nop" -> "4: x = undef" [label="FALL_THROUGH"];
+  "4: x = undef" -> "5: goto 8" [label="FALL_THROUGH"];
+  "5: goto 8" -> "8: nop" [label="GOTO"];
+  "6: nop" -> "7: x = p" [label="FALL_THROUGH"];
+  "7: x = p" -> "8: nop" [label="FALL_THROUGH"];
+  "8: nop" -> "9: y = x" [label="FALL_THROUGH"];
+  "9: y = x" -> "10: return" [label="FALL_THROUGH"];
+  "10: return" -> "Exit" [label="RETURN"];
+}

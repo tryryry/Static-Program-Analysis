@@ -1,0 +1,12 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: %intconst0 = 1";
+  "1: y = x + %intconst0";
+  "2: return y";
+  "Exit";
+  "Entry" -> "0: %intconst0 = 1" [label="ENTRY"];
+  "0: %intconst0 = 1" -> "1: y = x + %intconst0" [label="FALL_THROUGH"];
+  "1: y = x + %intconst0" -> "2: return y" [label="FALL_THROUGH"];
+  "2: return y" -> "Exit" [label="RETURN"];
+}

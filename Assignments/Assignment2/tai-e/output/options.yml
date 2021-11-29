@@ -1,0 +1,14 @@
+optionsFile: null
+printHelp: false
+javaVersion: 11
+prependJVM: true
+classPath: src/test/resources/dataflow/constprop/
+mainClass: Example
+worldBuilderClass: pascal.taie.frontend.soot.SootWorldBuilder
+preBuildIR: false
+scope: app
+nativeModel: true
+dumpClasses: false
+planFile: D:\Users\CML\Documents\MyUniversity\S1\课程\软件分析\作业\作业2\WU_FILE_0\tai-e\plan.yml
+analyses: {}
+onlyGenPlan: false

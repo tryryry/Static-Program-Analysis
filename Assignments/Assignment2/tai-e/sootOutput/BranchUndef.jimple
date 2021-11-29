@@ -1,0 +1,71 @@
+class BranchUndef extends java.lang.Object
+{
+
+    void undefined1(boolean)
+    {
+        BranchUndef this;
+        boolean b;
+        int x, undef, temp$0, y;
+
+        this := @this: BranchUndef;
+
+        b := @parameter0: boolean;
+
+        if b == 0 goto label2;
+
+        goto label1;
+
+     label1:
+        nop;
+
+        x = undef;
+
+        goto label3;
+
+     label2:
+        nop;
+
+        temp$0 = 10;
+
+        x = temp$0;
+
+     label3:
+        nop;
+
+        y = x;
+
+        return;
+    }
+
+    void undefined2(boolean)
+    {
+        BranchUndef this;
+        boolean b;
+        int undef, x, temp$0, a;
+
+        this := @this: BranchUndef;
+
+        b := @parameter0: boolean;
+
+        x = undef;
+
+        temp$0 = 20;
+
+        x = temp$0;
+
+        a = x;
+
+        return;
+    }
+
+    void <init>()
+    {
+        BranchUndef this;
+
+        this := @this: BranchUndef;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

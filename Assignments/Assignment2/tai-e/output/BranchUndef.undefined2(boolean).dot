@@ -1,0 +1,14 @@
+digraph G {
+  node [shape=box,style=filled,color=".3 .2 1.0"];
+  "Entry";
+  "0: x = undef";
+  "1: x = 20";
+  "2: a = x";
+  "3: return";
+  "Exit";
+  "Entry" -> "0: x = undef" [label="ENTRY"];
+  "0: x = undef" -> "1: x = 20" [label="FALL_THROUGH"];
+  "1: x = 20" -> "2: a = x" [label="FALL_THROUGH"];
+  "2: a = x" -> "3: return" [label="FALL_THROUGH"];
+  "3: return" -> "Exit" [label="RETURN"];
+}

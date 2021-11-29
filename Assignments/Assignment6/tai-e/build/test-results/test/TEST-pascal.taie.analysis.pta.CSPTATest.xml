@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="pascal.taie.analysis.pta.CSPTATest" tests="13" skipped="0" failures="0" errors="0" timestamp="2021-11-27T10:14:24" hostname="DESKTOP-I64H15I" time="24.914">
+<testsuite name="pascal.taie.analysis.pta.CSPTATest" tests="13" skipped="0" failures="0" errors="0" timestamp="2021-11-27T11:18:43" hostname="DESKTOP-I64H15I" time="27.136">
   <properties/>
-  <testcase name="testStoreLoad" classname="pascal.taie.analysis.pta.CSPTATest" time="4.388"/>
-  <testcase name="testOneCall" classname="pascal.taie.analysis.pta.CSPTATest" time="1.882"/>
-  <testcase name="testOneType" classname="pascal.taie.analysis.pta.CSPTATest" time="1.65"/>
-  <testcase name="testNew" classname="pascal.taie.analysis.pta.CSPTATest" time="1.673"/>
-  <testcase name="testTwoCall" classname="pascal.taie.analysis.pta.CSPTATest" time="1.653"/>
-  <testcase name="testTwoType" classname="pascal.taie.analysis.pta.CSPTATest" time="1.772"/>
-  <testcase name="testArray" classname="pascal.taie.analysis.pta.CSPTATest" time="1.802"/>
-  <testcase name="testCall" classname="pascal.taie.analysis.pta.CSPTATest" time="1.657"/>
-  <testcase name="testStaticField" classname="pascal.taie.analysis.pta.CSPTATest" time="1.739"/>
-  <testcase name="testTwoObject" classname="pascal.taie.analysis.pta.CSPTATest" time="1.612"/>
-  <testcase name="testInstanceField" classname="pascal.taie.analysis.pta.CSPTATest" time="1.646"/>
-  <testcase name="testAssign" classname="pascal.taie.analysis.pta.CSPTATest" time="1.706"/>
-  <testcase name="testOneObject" classname="pascal.taie.analysis.pta.CSPTATest" time="1.734"/>
+  <testcase name="testStoreLoad" classname="pascal.taie.analysis.pta.CSPTATest" time="6.434"/>
+  <testcase name="testOneCall" classname="pascal.taie.analysis.pta.CSPTATest" time="2.174"/>
+  <testcase name="testOneType" classname="pascal.taie.analysis.pta.CSPTATest" time="1.818"/>
+  <testcase name="testNew" classname="pascal.taie.analysis.pta.CSPTATest" time="1.8"/>
+  <testcase name="testTwoCall" classname="pascal.taie.analysis.pta.CSPTATest" time="1.728"/>
+  <testcase name="testTwoType" classname="pascal.taie.analysis.pta.CSPTATest" time="1.711"/>
+  <testcase name="testArray" classname="pascal.taie.analysis.pta.CSPTATest" time="1.648"/>
+  <testcase name="testCall" classname="pascal.taie.analysis.pta.CSPTATest" time="1.739"/>
+  <testcase name="testStaticField" classname="pascal.taie.analysis.pta.CSPTATest" time="1.497"/>
+  <testcase name="testTwoObject" classname="pascal.taie.analysis.pta.CSPTATest" time="1.679"/>
+  <testcase name="testInstanceField" classname="pascal.taie.analysis.pta.CSPTATest" time="1.824"/>
+  <testcase name="testAssign" classname="pascal.taie.analysis.pta.CSPTATest" time="1.454"/>
+  <testcase name="testOneObject" classname="pascal.taie.analysis.pta.CSPTATest" time="1.63"/>
   <system-out><![CDATA[Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9162 classes with 89829 methods in the world
-WorldBuilder finishes, elapsed time: 3.70s
+WorldBuilder finishes, elapsed time: 5.30s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                9 (insens) / 9 (sens)
@@ -31,17 +31,17 @@ cspta starts ...
 #call graph edges:            4 (insens) / 4 (sens)
 ----------------------------------------
 Comparing points-to set with src\test\resources\pta\cspta\StoreLoad-expected.txt ...
-cspta finishes, elapsed time: 0.11s
+cspta finishes, elapsed time: 0.14s
 class-dumper starts ...
 Dumping 3 classes to output ...
-class-dumper finishes, elapsed time: 0.02s
-Tai-e finishes, elapsed time: 3.99s
+class-dumper finishes, elapsed time: 0.03s
+Tai-e finishes, elapsed time: 5.72s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9165 classes with 89837 methods in the world
-WorldBuilder finishes, elapsed time: 1.82s
+WorldBuilder finishes, elapsed time: 2.02s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                21 (insens) / 25 (sens)
@@ -53,17 +53,17 @@ cspta starts ...
 #call graph edges:            10 (insens) / 10 (sens)
 ----------------------------------------
 Comparing points-to set with src\test\resources\pta\cspta\OneCall-expected.txt ...
-cspta finishes, elapsed time: 0.03s
+cspta finishes, elapsed time: 0.11s
 class-dumper starts ...
 Dumping 6 classes to output ...
 class-dumper finishes, elapsed time: 0.01s
-Tai-e finishes, elapsed time: 1.88s
+Tai-e finishes, elapsed time: 2.17s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9164 classes with 89835 methods in the world
-WorldBuilder finishes, elapsed time: 1.61s
+WorldBuilder finishes, elapsed time: 1.78s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                26 (insens) / 34 (sens)
@@ -79,13 +79,13 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 5 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.65s
+Tai-e finishes, elapsed time: 1.82s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9163 classes with 89830 methods in the world
-WorldBuilder finishes, elapsed time: 1.65s
+WorldBuilder finishes, elapsed time: 1.78s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                12 (insens) / 12 (sens)
@@ -101,13 +101,13 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 4 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.67s
+Tai-e finishes, elapsed time: 1.80s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9163 classes with 89833 methods in the world
-WorldBuilder finishes, elapsed time: 1.63s
+WorldBuilder finishes, elapsed time: 1.70s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                17 (insens) / 25 (sens)
@@ -123,13 +123,13 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 4 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.65s
+Tai-e finishes, elapsed time: 1.73s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9165 classes with 89837 methods in the world
-WorldBuilder finishes, elapsed time: 1.74s
+WorldBuilder finishes, elapsed time: 1.68s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                38 (insens) / 52 (sens)
@@ -145,13 +145,13 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 6 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.77s
+Tai-e finishes, elapsed time: 1.71s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9162 classes with 89830 methods in the world
-WorldBuilder finishes, elapsed time: 1.77s
+WorldBuilder finishes, elapsed time: 1.62s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                14 (insens) / 14 (sens)
@@ -167,13 +167,13 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 3 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.80s
+Tai-e finishes, elapsed time: 1.65s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9163 classes with 89831 methods in the world
-WorldBuilder finishes, elapsed time: 1.63s
+WorldBuilder finishes, elapsed time: 1.72s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                15 (insens) / 15 (sens)
@@ -189,13 +189,13 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 4 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.66s
+Tai-e finishes, elapsed time: 1.74s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9162 classes with 89829 methods in the world
-WorldBuilder finishes, elapsed time: 1.72s
+WorldBuilder finishes, elapsed time: 1.48s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                4 (insens) / 4 (sens)
@@ -211,13 +211,13 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 3 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.74s
+Tai-e finishes, elapsed time: 1.49s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9163 classes with 89834 methods in the world
-WorldBuilder finishes, elapsed time: 1.59s
+WorldBuilder finishes, elapsed time: 1.66s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                25 (insens) / 40 (sens)
@@ -233,13 +233,13 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 4 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.61s
+Tai-e finishes, elapsed time: 1.68s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9164 classes with 89835 methods in the world
-WorldBuilder finishes, elapsed time: 1.62s
+WorldBuilder finishes, elapsed time: 1.80s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                38 (insens) / 38 (sens)
@@ -255,13 +255,13 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 5 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.64s
+Tai-e finishes, elapsed time: 1.82s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9162 classes with 89829 methods in the world
-WorldBuilder finishes, elapsed time: 1.68s
+WorldBuilder finishes, elapsed time: 1.44s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                9 (insens) / 9 (sens)
@@ -277,13 +277,13 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 3 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.71s
+Tai-e finishes, elapsed time: 1.45s
 Tai-e starts ...
 Writing options to output\options.yml
 Writing analysis plan to output\tai-e-plan.yml
 WorldBuilder starts ...
 9162 classes with 89833 methods in the world
-WorldBuilder finishes, elapsed time: 1.71s
+WorldBuilder finishes, elapsed time: 1.61s
 cspta starts ...
 -------------- Pointer analysis statistics: --------------
 #var pointers:                19 (insens) / 28 (sens)
@@ -299,7 +299,7 @@ cspta finishes, elapsed time: 0.01s
 class-dumper starts ...
 Dumping 3 classes to output ...
 class-dumper finishes, elapsed time: 0.00s
-Tai-e finishes, elapsed time: 1.73s
+Tai-e finishes, elapsed time: 1.63s
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

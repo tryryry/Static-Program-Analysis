@@ -1,10 +1,21 @@
 class C extends java.lang.Object {
 
-    D d;
+    D f;
+
+    void set(D p) {
+        [0@L30] %this.<C: D f> = p;
+        [1@L30] return;
+    }
+
+    D get() {
+        D temp$0;
+        [0@L34] temp$0 = %this.<C: D f>;
+        [1@L34] return temp$0;
+    }
 
     void <init>() {
-        [0@L48] invokespecial %this.<java.lang.Object: void <init>()>();
-        [1@L48] return;
+        [0@L26] invokespecial %this.<java.lang.Object: void <init>()>();
+        [1@L26] return;
     }
 
 }

@@ -1,6 +1,33 @@
 class B extends java.lang.Object
 {
 
+    void m()
+    {
+        B this;
+        C c3, temp$0;
+        D temp$1, y, temp$2;
+
+        this := @this: B;
+
+        temp$0 = new C;
+
+        specialinvoke temp$0.<C: void <init>()>();
+
+        c3 = temp$0;
+
+        temp$1 = new D;
+
+        specialinvoke temp$1.<D: void <init>()>();
+
+        virtualinvoke c3.<C: void set(D)>(temp$1);
+
+        temp$2 = virtualinvoke c3.<C: D get()>();
+
+        y = temp$2;
+
+        return;
+    }
+
     void <init>()
     {
         B this;

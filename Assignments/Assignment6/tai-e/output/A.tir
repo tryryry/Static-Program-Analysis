@@ -1,26 +1,28 @@
 class A extends java.lang.Object {
 
-    B f;
-
-    void set(B b) {
-        [0@L21] invokevirtual %this.<A: void doSet(B)>(b);
-        [1@L21] return;
-    }
-
-    void doSet(B p) {
-        [0@L25] %this.<A: B f> = p;
-        [1@L25] return;
-    }
-
-    B get() {
-        B temp$0;
-        [0@L29] temp$0 = %this.<A: B f>;
-        [1@L29] return temp$0;
+    void m() {
+        C temp$0, c1, temp$2, c2;
+        D temp$1, temp$3, temp$4, x;
+        [0@L10] temp$0 = new C;
+        [1@L10] invokespecial temp$0.<C: void <init>()>();
+        [2@L10] c1 = temp$0;
+        [3@L11] temp$1 = new D;
+        [4@L11] invokespecial temp$1.<D: void <init>()>();
+        [5@L11] invokevirtual c1.<C: void set(D)>(temp$1);
+        [6@L12] temp$2 = new C;
+        [7@L12] invokespecial temp$2.<C: void <init>()>();
+        [8@L12] c2 = temp$2;
+        [9@L13] temp$3 = new D;
+        [10@L13] invokespecial temp$3.<D: void <init>()>();
+        [11@L13] invokevirtual c2.<C: void set(D)>(temp$3);
+        [12@L14] temp$4 = invokevirtual c1.<C: D get()>();
+        [13@L14] x = temp$4;
+        [14@L14] return;
     }
 
     void <init>() {
-        [0@L17] invokespecial %this.<java.lang.Object: void <init>()>();
-        [1@L17] return;
+        [0@L8] invokespecial %this.<java.lang.Object: void <init>()>();
+        [1@L8] return;
     }
 
 }

@@ -1,8 +1,22 @@
 class B extends java.lang.Object {
 
+    void m() {
+        C temp$0, c3;
+        D temp$1, temp$2, y;
+        [0@L20] temp$0 = new C;
+        [1@L20] invokespecial temp$0.<C: void <init>()>();
+        [2@L20] c3 = temp$0;
+        [3@L21] temp$1 = new D;
+        [4@L21] invokespecial temp$1.<D: void <init>()>();
+        [5@L21] invokevirtual c3.<C: void set(D)>(temp$1);
+        [6@L22] temp$2 = invokevirtual c3.<C: D get()>();
+        [7@L22] y = temp$2;
+        [8@L22] return;
+    }
+
     void <init>() {
-        [0@L33] invokespecial %this.<java.lang.Object: void <init>()>();
-        [1@L33] return;
+        [0@L18] invokespecial %this.<java.lang.Object: void <init>()>();
+        [1@L18] return;
     }
 
 }

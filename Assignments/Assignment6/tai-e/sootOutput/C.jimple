@@ -1,6 +1,32 @@
 class C extends java.lang.Object
 {
-    D d;
+    D f;
+
+    void set(D)
+    {
+        C this;
+        D p;
+
+        this := @this: C;
+
+        p := @parameter0: D;
+
+        this.<C: D f> = p;
+
+        return;
+    }
+
+    D get()
+    {
+        C this;
+        D temp$0;
+
+        this := @this: C;
+
+        temp$0 = this.<C: D f>;
+
+        return temp$0;
+    }
 
     void <init>()
     {

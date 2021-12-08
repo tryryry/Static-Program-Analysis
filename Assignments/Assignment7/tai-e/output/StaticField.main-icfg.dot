@@ -1,0 +1,14 @@
+digraph G {
+  node [style=filled,shape=box,color=".3 .2 1.0",];
+  "Entry<StaticField: void main(java.lang.String[])>";
+  "0: temp$0 = 100";
+  "1: <StaticField: int f> = temp$0";
+  "2: x = <StaticField: int f>";
+  "3: return";
+  "Exit<StaticField: void main(java.lang.String[])>";
+  "Entry<StaticField: void main(java.lang.String[])>" -> "0: temp$0 = 100" [];
+  "0: temp$0 = 100" -> "1: <StaticField: int f> = temp$0" [];
+  "1: <StaticField: int f> = temp$0" -> "2: x = <StaticField: int f>" [];
+  "2: x = <StaticField: int f>" -> "3: return" [];
+  "3: return" -> "Exit<StaticField: void main(java.lang.String[])>" [];
+}

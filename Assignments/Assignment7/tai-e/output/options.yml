@@ -3,7 +3,7 @@ printHelp: false
 javaVersion: 11
 prependJVM: true
 classPath: src/test/resources/dataflow/constprop/alias
-mainClass: InstanceField
+mainClass: ArrayLoops
 worldBuilderClass: pascal.taie.frontend.soot.SootWorldBuilder
 preBuildIR: false
 scope: app
@@ -15,5 +15,5 @@ analyses:
   cspta: cs:2-obj
   cg: algorithm:cspta
   process-result: "analyses:[inter-constprop];action:compare;file:src\\test\\resources\\\
-    dataflow\\constprop\\alias\\InstanceField-expected.txt"
+    dataflow\\constprop\\alias\\ArrayLoops-expected.txt"
 onlyGenPlan: false

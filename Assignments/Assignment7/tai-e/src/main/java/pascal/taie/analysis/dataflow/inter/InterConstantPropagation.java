@@ -77,7 +77,6 @@
              return instance;
          }
      }
-     private Set<Instance>instanceSet;
      private Map<Instance,Value> instanceMap;
      private Set<Stmt>loadInstanceStmt;
 
@@ -107,7 +106,6 @@
              return newArray;
          }
      }
-     private Set<Array>arraySet;
      private Map<Array,Value> arrayMap;
      private Set<Stmt>loadArrayStmt;
 
@@ -125,11 +123,9 @@
          staticMap=new HashMap<>();
          loadStaticStmt=new HashSet<>();
 
-         instanceSet=new HashSet<>();
          instanceMap=new HashMap<>();
          loadInstanceStmt=new HashSet<>();
 
-         arraySet=new HashSet<>();
          arrayMap=new HashMap<>();
          loadArrayStmt=new HashSet<>();
      }
@@ -208,7 +204,7 @@
              }else{
                  loadInstanceStmt.add(stmt);
                  InstanceFieldAccess instanceFieldAccess=(InstanceFieldAccess) loadField.getRValue();
-                 for(Instance instance:instanceSet){
+                 for(Instance instance:instanceMap.keySet()){
                     if(isOverLap(instanceFieldAccess.getBase(),instance.getBase())){
                         Value value=instanceMap.get(instance);
                         CPFact temp=in.copy();
@@ -257,7 +253,7 @@
                  }
                  InstanceFieldAccess instanceFieldAccess=(InstanceFieldAccess) storeField.getLValue();
                  Instance instance=Instance.Create(instanceFieldAccess.getFieldRef(),instanceFieldAccess.getBase());
-                 for(Instance instance1:instanceSet) {
+                 for(Instance instance1:instanceMap.keySet()) {
                      if(isOverLap(instance.getBase(),instance1.getBase())) {
                          Value value1=instanceMap.get(instance1);
                          Value meetValue=cp.meetValue(value1,value);
@@ -265,7 +261,6 @@
                          value=meetValue;
                      }
                  }
-                 instanceSet.add(instance);
                  instanceMap.put(instance,value);
                  boolean isChange=false;
                  for(Map.Entry<Instance,Value> entry:instanceMap.entrySet()){
@@ -285,7 +280,7 @@
              ArrayAccess arrayAccess=loadArray.getRValue();
              boolean flag=false;
              boolean ret=false;
-             for(Array array:arraySet){
+             for(Array array:arrayMap.keySet()){
                  if(isOverLap(array.getBase(),arrayAccess.getBase())&&isIndexAli(ConstantPropagation.evaluate(arrayAccess.getIndex(),in),array.getValue())){
                      if(array.getValue().isNAC()){
                          if(flag){
@@ -319,7 +314,7 @@
              ArrayAccess arrayAccess=storeArray.getArrayAccess();
              Value indexValue=ConstantPropagation.evaluate(arrayAccess.getIndex(),in);
              Array array=Array.Create(arrayAccess.getBase(),indexValue);
-             for(Array array1:arraySet){
+             for(Array array1:arrayMap.keySet()){
                  if(isOverLap(array.getBase(),array1.getBase())&&isIndexAli(array.getValue(),array1.getValue())){
                      Value value1=arrayMap.get(array1);
                      Value meetValue=cp.meetValue(value1,value);
@@ -331,7 +326,6 @@
                      }
                  }
              }
-             arraySet.add(array);
              arrayMap.put(array,value);
 
              boolean isChange=false;

@@ -34,5 +34,5 @@
     analyses:
     - inter-constprop
     action: compare
-    file: src\test\resources\dataflow\constprop\alias\InstanceField-expected.txt
+    file: src\test\resources\dataflow\constprop\alias\ArrayLoops-expected.txt
     log-mismatches: false

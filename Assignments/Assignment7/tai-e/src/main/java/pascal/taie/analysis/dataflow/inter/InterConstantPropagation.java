@@ -45,14 +45,39 @@
 
      private final ConstantPropagation cp;
 
+     private PointerAnalysisResult pta;
 
      private Map<FieldRef,Value> staticMap;
      private Set<Stmt>loadStaticStmt;
 
-     private PointerAnalysisResult pta;
+     private static class Instance{
+         private final FieldRef fieldRef;
+         private final Var base;
 
-     private Set<InstanceFieldAccess>instanceSet;
-     private Map<String,Value> instanceMap;
+         private static Set<Instance> set=new HashSet<>();
+
+         private Instance(FieldRef fieldRef,Var base){
+             this.base=base;
+             this.fieldRef=fieldRef;
+         }
+         public FieldRef getFieldRef(){
+             return fieldRef;
+         }
+         public Var getBase(){
+             return base;
+         }
+         public static Instance Create(FieldRef fieldRef,Var base){
+             for(Instance instance:set){
+                 if(instance.fieldRef==fieldRef&&instance.base== base){
+                     return instance;
+                 }
+             }
+             Instance instance=new Instance(fieldRef,base);
+             set.add(instance);
+             return instance;
+         }
+     }
+     private Map<Instance,Value> instanceMap;
      private Set<Stmt>loadInstanceStmt;
 
      private static class Array{
@@ -81,9 +106,9 @@
              return newArray;
          }
      }
-     private Set<Array>arraySet;
      private Map<Array,Value> arrayMap;
      private Set<Stmt>loadArrayStmt;
+
      public InterConstantPropagation(AnalysisConfig config) {
          super(config);
          cp = new ConstantPropagation(new AnalysisConfig(ConstantPropagation.ID));
@@ -98,11 +123,9 @@
          staticMap=new HashMap<>();
          loadStaticStmt=new HashSet<>();
 
-         instanceSet=new HashSet<>();
          instanceMap=new HashMap<>();
          loadInstanceStmt=new HashSet<>();
 
-         arraySet=new HashSet<>();
          arrayMap=new HashMap<>();
          loadArrayStmt=new HashSet<>();
      }
@@ -134,6 +157,7 @@
 
          return out.copyFrom(in);
      }
+
      private boolean isOverLap(Var var1,Var var2){
          Set<Obj>set1=pta.getPointsToSet(var1);
          Set<Obj>set2=pta.getPointsToSet(var2);
@@ -144,28 +168,15 @@
          }
          return false;
      }
-     private boolean isEqual(Value v1,Value v2){
-         if(v1.isConstant()&&v2.isConstant()&&v1.getConstant()==v2.getConstant()){
-             return true;
-         }else if(v1.isNAC()&&v2.isNAC()){
-             return true;
-         }else if(v1.isUndef()||v2.isUndef()){
-             return true;
-         }
-         return false;
-     }
-     private boolean isAli(Var var1,CPFact in1,Value value2){
-        Value value1=ConstantPropagation.evaluate(var1,in1);
-
+     private boolean isIndexAli(Value value1,Value value2){
         if(value1.isNAC()&&!value2.isUndef()){
             return true;
         }
         if(value2.isNAC()&&!value1.isUndef()){
             return true;
         }
-        if(value1.isConstant()&&value2.isConstant()){
-            if(value1.getConstant()==value2.getConstant())
-                return true;
+        if(value1.isConstant()&&value2.isConstant()&&value1.getConstant()==value2.getConstant()){
+            return true;
         }
         return false;
      }
@@ -174,7 +185,6 @@
          // TODO - finish me
          //return false;
          if(stmt instanceof LoadField){
-
              LoadField loadField=(LoadField) stmt;
              if(loadField.isStatic()){
                  loadStaticStmt.add(stmt);
@@ -184,8 +194,7 @@
                      if(ConstantPropagation.canHoldInt(loadField.getLValue())){
                          temp.update(loadField.getLValue(),value);
                      }
-                     boolean flag=out.copyFrom(temp);
-                     return flag;
+                     return out.copyFrom(temp);
                  }else{
                      Set<Stmt>tempSet=new HashSet<>();
                      tempSet.add(stmt);
@@ -194,21 +203,17 @@
                  }
              }else{
                  loadInstanceStmt.add(stmt);
-                InstanceFieldAccess instanceFieldAccess=(InstanceFieldAccess) loadField.getRValue();
-                for(InstanceFieldAccess instanceFieldAccess1:instanceSet){
-                    if(isOverLap(instanceFieldAccess.getBase(),instanceFieldAccess1.getBase())){
-                        //String str=instanceFieldAccess.getBase().toString()+"."+instanceFieldAccess.getFieldRef().toString();
-                        String str1=instanceFieldAccess1.getBase().toString()+"."+instanceFieldAccess.getFieldRef().toString();
+                 InstanceFieldAccess instanceFieldAccess=(InstanceFieldAccess) loadField.getRValue();
+                 for(Instance instance:instanceMap.keySet()){
+                    if(isOverLap(instanceFieldAccess.getBase(),instance.getBase())){
+                        Value value=instanceMap.get(instance);
                         CPFact temp=in.copy();
-                        Value value=instanceMap.get(str1);
-                        //instanceMap.put(str,value);
                         if(ConstantPropagation.canHoldInt(loadField.getLValue())){
                             temp.update(loadField.getLValue(),value);
                         }
-                        boolean flag=out.copyFrom(temp);
-                        return flag;
+                        return out.copyFrom(temp);
                     }
-                }
+                 }
                  Set<Stmt>tempSet=new HashSet<>();
                  tempSet.add(stmt);
                  solver.addNode(tempSet);
@@ -222,17 +227,19 @@
                  for(Map.Entry<FieldRef,Value> entry:staticMap.entrySet()){
                      tempMap.put(entry.getKey(),entry.getValue());
                  }
-                 if(staticMap.containsKey(storeField.getLValue().getFieldRef())){
-                     if(!isEqual(staticMap.get(storeField.getLValue().getFieldRef()),value)){
-                         staticMap.replace(storeField.getLValue().getFieldRef(),Value.getNAC());
-                     }
+                 FieldRef fieldRef=storeField.getLValue().getFieldRef();
+                 if(staticMap.containsKey(fieldRef)){
+                     Value value1=staticMap.get(fieldRef);
+                     Value meetValue=cp.meetValue(value1,value);
+                     staticMap.replace(fieldRef,meetValue);
                  }else{
-                        staticMap.put(storeField.getLValue().getFieldRef(),value);
+                     staticMap.put(fieldRef,value);
                  }
                  boolean isChange=false;
                  for(Map.Entry<FieldRef,Value> entry:staticMap.entrySet()){
                      if(tempMap.get(entry.getKey())!=entry.getValue()){
                          isChange=true;
+                         break;
                      }
                  }
                  if(isChange){
@@ -240,38 +247,31 @@
                  }
 
              }else{
-                 Map<String,Value>tempMap=new HashMap<>();
-                 for(Map.Entry<String,Value> entry:instanceMap.entrySet()){
+                 Map<Instance,Value>tempMap=new HashMap<>();
+                 for(Map.Entry<Instance,Value> entry:instanceMap.entrySet()){
                      tempMap.put(entry.getKey(),entry.getValue());
                  }
                  InstanceFieldAccess instanceFieldAccess=(InstanceFieldAccess) storeField.getLValue();
-                 String str=instanceFieldAccess.getBase().toString()+"."+instanceFieldAccess.getFieldRef().toString();
-                 for(InstanceFieldAccess instanceFieldAccess1:instanceSet) {
-                     if(isOverLap(instanceFieldAccess.getBase(),instanceFieldAccess1.getBase())) {
-                         String str1=instanceFieldAccess1.getBase().toString()+"."+instanceFieldAccess.getFieldRef().toString();
-                         Value value1=instanceMap.get(str1);
-                         if(!isEqual(value1,value)){
-                             value=Value.getNAC();
-                             instanceMap.replace(str1,value);
-                         }else if(value1.isUndef()&&value.isConstant()){
-                             instanceMap.replace(str1,value);
-                         }else if(value1.isConstant()&&value.isUndef()){
-                             value=value1;
-                         }
+                 Instance instance=Instance.Create(instanceFieldAccess.getFieldRef(),instanceFieldAccess.getBase());
+                 for(Instance instance1:instanceMap.keySet()) {
+                     if(isOverLap(instance.getBase(),instance1.getBase())) {
+                         Value value1=instanceMap.get(instance1);
+                         Value meetValue=cp.meetValue(value1,value);
+                         instanceMap.replace(instance1,meetValue);
+                         value=meetValue;
                      }
                  }
-                 instanceMap.put(str,value);
-                 instanceSet.add(instanceFieldAccess);
+                 instanceMap.put(instance,value);
                  boolean isChange=false;
-                 for(Map.Entry<String,Value> entry:instanceMap.entrySet()){
+                 for(Map.Entry<Instance,Value> entry:instanceMap.entrySet()){
                      if(tempMap.get(entry.getKey())!=entry.getValue()){
                          isChange=true;
+                         break;
                      }
                  }
                  if(isChange){
                      solver.addNode(loadInstanceStmt);
                  }
-
              }
          }
          else if(stmt instanceof LoadArray){
@@ -280,23 +280,20 @@
              ArrayAccess arrayAccess=loadArray.getRValue();
              boolean flag=false;
              boolean ret=false;
-             int num=0;
-             for(Array array:arraySet){
-                 if(isOverLap(array.getBase(),arrayAccess.getBase())&&isAli(arrayAccess.getIndex(),in,array.getValue())){
-                     Array key1=Array.Create(array.getBase(),array.getValue());
-                     if(key1.getValue().isNAC()){
-                         if(num!=0){
+             for(Array array:arrayMap.keySet()){
+                 if(isOverLap(array.getBase(),arrayAccess.getBase())&&isIndexAli(ConstantPropagation.evaluate(arrayAccess.getIndex(),in),array.getValue())){
+                     if(array.getValue().isNAC()){
+                         if(flag){
                              continue;
                          }
                      }
                      CPFact temp=in.copy();
-                     Value value=arrayMap.get(key1);
+                     Value value=arrayMap.get(array);
                      if(ConstantPropagation.canHoldInt(loadArray.getLValue())){
                          temp.update(loadArray.getLValue(),value);
                      }
                      flag=true;
                      ret=out.copyFrom(temp);
-                     num++;
                  }
              }
              if(flag){
@@ -315,37 +312,32 @@
              StoreArray storeArray=(StoreArray) stmt;
              Value value=ConstantPropagation.evaluate(storeArray.getRValue(),in);
              ArrayAccess arrayAccess=storeArray.getArrayAccess();
-             Array key=Array.Create(arrayAccess.getBase(),ConstantPropagation.evaluate(arrayAccess.getIndex(),in));
-             for(Array array:arraySet){
-                 if(isOverLap(key.getBase(),array.getBase())&&isAli(arrayAccess.getIndex(),in,array.getValue())){
-                     Array key1=Array.Create(array.getBase(),array.getValue());
-                     Value value1=arrayMap.get(key1);
-
-                     if(!isEqual(value1,value)) {
-                         if(array.getValue()!=Value.getNAC()){
-                             arrayMap.replace(key1, Value.getNAC());
-                         }
-                         if(key.getValue()!=Value.getNAC()){
-                             value=Value.getNAC();
-                         }
-
+             Value indexValue=ConstantPropagation.evaluate(arrayAccess.getIndex(),in);
+             Array array=Array.Create(arrayAccess.getBase(),indexValue);
+             for(Array array1:arrayMap.keySet()){
+                 if(isOverLap(array.getBase(),array1.getBase())&&isIndexAli(array.getValue(),array1.getValue())){
+                     Value value1=arrayMap.get(array1);
+                     Value meetValue=cp.meetValue(value1,value);
+                     if(!array1.getValue().isNAC()){
+                         arrayMap.replace(array1,meetValue);
+                     }
+                     if(!array.getValue().isNAC()){
+                         value=meetValue;
                      }
                  }
              }
-
-             arrayMap.put(key,value);
-             arraySet.add(key);
+             arrayMap.put(array,value);
 
              boolean isChange=false;
              for(Map.Entry<Array,Value> entry:arrayMap.entrySet()){
                  if(tempMap.get(entry.getKey())!=entry.getValue()){
                      isChange=true;
+                     break;
                  }
              }
              if(isChange){
                  solver.addNode(loadArrayStmt);
              }
-             //solver.addNode(loadArrayStmt);
          }
          return cp.transferNode(stmt,in,out);
      }

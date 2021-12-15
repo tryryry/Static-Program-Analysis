@@ -55,10 +55,9 @@ class InterSolver<Method, Node, Fact> {
         doSolve();
         return result;
     }
-    public  void addNode(Set<Node>node){
+    public void addNode(Set<Node>node){
         for(Node node1:node){
             workList.add(node1);
-            icfg.succsOf(node1).forEach(workList::add);
         }
     }
     private void initialize() {

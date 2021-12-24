@@ -110,7 +110,6 @@ public class TaintAnalysiss {
         }
 
         //arg-to-base
-
         InvokeInstanceExp invokeInstanceExp=(InvokeInstanceExp) stmt.getInvokeExp();
         CSVar base=csManager.getCSVar(context,invokeInstanceExp.getBase());
         for(int i=0;i<argCount;i++){
@@ -122,7 +121,6 @@ public class TaintAnalysiss {
         }
 
         //base-to-result
-
         if(config.getTransfers().contains(new TaintTransfer(method,-1,-2,type))){
             solver.TaintAddPFG(base,csManager.getCSVar(context,stmt.getLValue()));
         }

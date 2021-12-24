@@ -67,51 +67,51 @@ class ArrayLoops extends java.lang.Object
 
     static void loopMix()
     {
-        int[] a, temp$1, temp$5, temp$8, temp$10;
-        int i, temp$0, temp$2, temp$3, temp$4, temp$6, temp$7, x, temp$9, y, temp$11;
+        int[] a, temp$0, temp$4, temp$8, temp$10;
+        int temp$1, temp$2, i, temp$3, temp$5, temp$6, temp$7, x, temp$9, y, temp$11;
 
         a = newarray (int)[5];
+
+        temp$0 = a;
+
+        temp$1 = 4;
+
+        temp$2 = 777;
+
+        temp$0[temp$1] = temp$2;
 
         i = 0;
 
      label1:
         nop;
 
-        temp$0 = lengthof a;
+        temp$3 = lengthof a;
 
-        if i < temp$0 goto label2;
+        if i < temp$3 goto label2;
 
         goto label3;
 
      label2:
         nop;
 
-        temp$1 = a;
+        temp$4 = a;
 
-        temp$2 = i;
+        temp$5 = i;
 
-        temp$3 = 666;
+        temp$6 = 666;
 
-        temp$1[temp$2] = temp$3;
+        temp$4[temp$5] = temp$6;
 
         nop;
 
-        temp$4 = i + 1;
+        temp$7 = i + 1;
 
-        i = temp$4;
+        i = temp$7;
 
         goto label1;
 
      label3:
         nop;
-
-        temp$5 = a;
-
-        temp$6 = 4;
-
-        temp$7 = 777;
-
-        temp$5[temp$6] = temp$7;
 
         temp$8 = a;
 

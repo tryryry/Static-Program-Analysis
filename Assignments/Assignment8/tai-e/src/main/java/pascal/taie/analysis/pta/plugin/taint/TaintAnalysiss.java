@@ -74,9 +74,9 @@ public class TaintAnalysiss {
     public boolean isTaintObj(Obj obj){
         return manager.isTaint(obj);
     }
-    public void handle(Invoke stmt,Context context){
+    public void handle(Invoke stmt,Context context,JMethod method){
         //source
-        JMethod method=stmt.getInvokeExp().getMethodRef().resolve();
+        //JMethod method=stmt.getInvokeExp().getMethodRef().resolve();
         Type type=stmt.getInvokeExp().getType();
 
         if(config.getSources().contains(new Source(method,type))){
@@ -110,6 +110,7 @@ public class TaintAnalysiss {
         }
 
         //arg-to-base
+
         InvokeInstanceExp invokeInstanceExp=(InvokeInstanceExp) stmt.getInvokeExp();
         CSVar base=csManager.getCSVar(context,invokeInstanceExp.getBase());
         for(int i=0;i<argCount;i++){

@@ -117,6 +117,7 @@ public class Solver {
         addPFGEdge(src,dst);
     }
 
+
     /**
      * Processes new reachable context-sensitive method.
      */
@@ -176,8 +177,9 @@ public class Solver {
         }
         public Void  visit(Invoke stmt) {
             if(stmt.isStatic()){
-                taintAnalysis.handle(stmt,context);
+
                 JMethod jMethod=resolveCallee(null,stmt);
+
                 CSCallSite csCallSite=csManager.getCSCallSite(context,stmt);
                 Context staticContext=contextSelector.selectContext(csCallSite,jMethod);
                 CSMethod csMethod=csManager.getCSMethod(staticContext,jMethod);
@@ -197,9 +199,8 @@ public class Solver {
                             break;
                         addPFGEdge(csManager.getCSVar(staticContext,var),csManager.getCSVar(context,stmt.getLValue()));
                     }
-
-
                 }
+                taintAnalysis.handle(stmt,context,jMethod);
             }
             return null;
         }
@@ -292,15 +293,13 @@ public class Solver {
      */
     private void processCall(CSVar recv, CSObj recvObj) {
         // TODO - finish me
-
         Context context=recv.getContext();
         for(Invoke invoke:recv.getVar().getInvokes()){
-            taintAnalysis.handle(invoke,context);
-
             JMethod jMethod=resolveCallee(recvObj,invoke);
             if(jMethod==null)
                 continue;
             assert (jMethod!=null);
+
             Context invokeContext=contextSelector.selectContext(csManager.getCSCallSite(context,invoke),recvObj,jMethod);
 
             workList.addEntry(csManager.getCSVar(invokeContext,jMethod.getIR().getThis()),PointsToSetFactory.make(recvObj));
@@ -332,7 +331,7 @@ public class Solver {
                     addPFGEdge(csManager.getCSVar(invokeContext,var),csManager.getCSVar(context,invoke.getLValue()));
                 }
             }
-
+            taintAnalysis.handle(invoke,context,jMethod);
         }
     }
 
